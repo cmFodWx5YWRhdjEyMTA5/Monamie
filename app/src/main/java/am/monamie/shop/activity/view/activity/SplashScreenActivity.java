@@ -1,14 +1,18 @@
 package am.monamie.shop.activity.view.activity;
 
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Window;
 
 import am.monamie.shop.R;
 import am.monamie.shop.activity.view.utils.DeviceUtils;
@@ -18,22 +22,49 @@ public class SplashScreenActivity extends AppCompatActivity {
     private Activity activity = SplashScreenActivity.this;
     private Context context = SplashScreenActivity.this;
     private AlertDialog alertDialog;
-
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        handler = new Handler();
+        Window window = getWindow();
+        ActionBar actionBar = getSupportActionBar();
+        configurationScreenWindow(window, actionBar);
+
         DeviceUtils.deviceId(context);
         checkNetworkConnection();
         DeviceUtils.deviceLanguage();
 
     }
 
+    private void configurationScreenWindow(Window window, ActionBar actionBar) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && window != null && actionBar != null) {
+            window.setStatusBarColor(getResources().getColor(R.color.window));
+            window.setNavigationBarColor(getResources().getColor(R.color.navigation_bar));
+            actionBar.hide();
+        }
+    }
+
     private void checkNetworkConnection() {
         if (!DeviceUtils.isNetworkConnectionAvailable(context)) {
             showNetworkDialog();
+        } else {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    goGeneralScreen(activity);
+                }
+            }, 3000);
         }
+    }
+
+    private void goGeneralScreen(Activity activity) {
+        Intent intent = new Intent(activity, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        activity.finish();
     }
 
     private void showNetworkDialog() {
@@ -50,9 +81,15 @@ public class SplashScreenActivity extends AppCompatActivity {
                         finish();
                     }
                 });
-        if(alertDialog == null){
+        if (alertDialog == null) {
             alertDialog = builder.create();
             alertDialog.show();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        checkNetworkConnection();
     }
 }
