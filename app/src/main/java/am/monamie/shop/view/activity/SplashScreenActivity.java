@@ -15,7 +15,7 @@ import android.os.Bundle;
 import android.view.Window;
 
 import am.monamie.shop.R;
-import am.monamie.shop.view.utils.DeviceUtils;
+import am.monamie.shop.view.util.DeviceUtils;
 
 public class SplashScreenActivity extends AppCompatActivity {
     private static final String TAG = SplashScreenActivity.class.getName();

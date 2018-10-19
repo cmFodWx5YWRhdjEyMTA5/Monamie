@@ -1,4 +1,4 @@
-package am.monamie.shop.view.utils;
+package am.monamie.shop.view.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
