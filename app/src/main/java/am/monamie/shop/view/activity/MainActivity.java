@@ -1,4 +1,4 @@
-package am.monamie.shop.activity.view.activity;
+package am.monamie.shop.view.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
