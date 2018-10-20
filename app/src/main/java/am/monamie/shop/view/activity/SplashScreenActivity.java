@@ -100,4 +100,10 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onStop();
         handler.removeCallbacksAndMessages(null);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacksAndMessages(null);
+    }
 }
