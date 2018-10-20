@@ -1,4 +1,4 @@
-package am.monamie.shop.view.Helper;
+package am.monamie.shop.view.helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
