@@ -35,5 +35,12 @@ dependencies {
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     // Support multi dex
     implementation 'com.android.support:multidex:1.0.3'
+    // Recycler view and Card view
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
 
 }

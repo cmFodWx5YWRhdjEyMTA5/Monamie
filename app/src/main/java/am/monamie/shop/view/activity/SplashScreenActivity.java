@@ -40,9 +40,11 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void configurationScreenWindow(Window window, ActionBar actionBar) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && window != null && actionBar != null) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && window != null) {
             window.setStatusBarColor(getResources().getColor(R.color.window));
             window.setNavigationBarColor(getResources().getColor(R.color.navigation_bar));
+        }
+        if (actionBar != null) {
             actionBar.hide();
         }
     }

@@ -6,4 +6,8 @@
     <!--Splash Screen Window-->
     <color name="window">#ffffff</color>
     <color name="navigation_bar">#ffffff</color>
+
+    <color name="general_screen_action_bar_title_color">#000</color>
+    <color name="general_screen_action_bar_background_color">#cebebb</color>
+    <!--<color name="general_screen_action_bar_background_color">#ecddda</color>-->
 </resources>
