@@ -94,4 +94,10 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onStart();
         checkNetworkConnection();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        handler.removeCallbacksAndMessages(null);
+    }
 }

@@ -5,11 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".view.activity.SplashScreenActivity">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:layout_width="300dp"
+            android:layout_height="300dp" />
+    </LinearLayout>
 
-    <ImageView
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"
-        android:layout_width="300dp"
-        android:layout_height="300dp" />
 </RelativeLayout>
