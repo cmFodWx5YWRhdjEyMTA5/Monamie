@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mon amie</string>
-    <string name="connect_to_network">RU connect_to_network</string>
-    <string name="connect_to_wifi">RU connect_to_wifi</string>
-    <string name="quit">RU quiq</string>
+
+    <string name="connect_to_network">connect_to_network</string>
+    <string name="connect_to_wifi">connect_to_wifi</string>
+    <string name="quit">quit</string>
+
     <string name="general_screen_action_bar_title">Mon amie</string>
+
 
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -32,5 +34,17 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="create_account">Create Account. Sign Up</string>
+
+    <!--Sign In-->
+    <string name="sign_up">Sign Up</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="do_you_have_account">Do you have account ? Sign In</string>
+    <string name="bird_of_day">Bird of day</string>
+
+    <!--Token-->
+    <string name="gcm_token" translatable="false">Instance ID Token %s</string>
+
 
 </resources>

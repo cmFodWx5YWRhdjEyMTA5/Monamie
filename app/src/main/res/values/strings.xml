@@ -35,5 +35,15 @@
     <string name="password">Password</string>
     <string name="create_account">Create Account. Sign Up</string>
 
+    <!--Sign In-->
+    <string name="sign_up">Sign Up</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="do_you_have_account">Do you have account ? Sign In</string>
+    <string name="bird_of_day">Bird of day</string>
+
+    <!--Token-->
+    <string name="gcm_token" translatable="false">Instance ID Token %s</string>
 
 </resources>
