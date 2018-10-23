@@ -12,11 +12,12 @@ import java.util.Calendar;
 
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
+    private static final String TAG = DatePickerFragment.class.getName();
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-// Use the current date as the default date in the picker
+        // Use the current date as the default date in the picker
         final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
