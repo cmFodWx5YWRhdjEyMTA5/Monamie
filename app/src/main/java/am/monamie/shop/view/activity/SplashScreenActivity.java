@@ -63,7 +63,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void goGeneralScreen(Activity activity) {
-        Intent intent = new Intent(activity, MainActivity.class);
+        Intent intent = new Intent(activity, SignInActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         activity.finish();

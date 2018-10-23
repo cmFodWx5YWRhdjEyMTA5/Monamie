@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#d7e3f7"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.SignUpActivity">
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="#302b2c"
+
+                android:text="Գրանցում"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:textAlignment="center"
+                android:layout_marginTop="15dp"
+                android:textColorHint="#302b2c"
+                android:hint="Անուն"
+                android:id="@+id/nameID"
+                android:background="@drawable/round_edittext"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp" />
+            <EditText
+                android:textAlignment="center"
+                android:background="@drawable/round_edittext"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#302b2c"
+                android:hint="Ազգանունն"
+                android:id="@+id/SurenameID"
+                />
+            <EditText
+                android:textAlignment="center"
+                android:background="@drawable/round_edittext"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:textColorHint="#302b2c"
+                android:layout_marginTop="10dp"
+                android:hint="Էլ․Փոստ"
+                android:id="@+id/emailID" />
+            <EditText
+                android:textAlignment="center"
+                android:background="@drawable/round_edittext"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:textColorHint="#302b2c"
+                android:layout_marginTop="10dp"
+                android:hint="Գաղտնաբառ"
+                android:inputType="textPassword"
+                android:id="@+id/passID" />
+            <EditText
+                android:textAlignment="center"
+                android:background="@drawable/round_edittext"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:textColorHint="#302b2c"
+                android:layout_marginTop="10dp"
+                android:hint="Կրկնել գաղտնաբառ"
+                android:inputType="textPassword"
+                android:id="@+id/confirmpassID" />
+            <Button
+                android:layout_margin="40sp"
+                android:background="@drawable/round_button"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center_horizontal"
+                android:textColorHint="#302b2c"
+                android:textColor="#ffffff"
+                android:text="Գրանցվել"
+                android:id="@+id/RegButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

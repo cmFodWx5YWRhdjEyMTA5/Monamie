@@ -22,7 +22,7 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        appApplication =  this;
+        appApplication = this;
     }
 
     public ApiService getNetworkService() {
@@ -39,14 +39,13 @@ public class AppApplication extends Application {
     }
 
 
-
-    private OkHttpClient addCache(){
+    private OkHttpClient addCache() {
         int cacheSize = 10 * 1024 * 1024; // 10 MB
 
         // Create Cache
         Cache cache = null;
         try {
-            cache = new Cache(new File(getCacheDir(), "http"),cacheSize );
+            cache = new Cache(new File(getCacheDir(), "http"), cacheSize);
         } catch (Exception e) {
             e.getMessage();
         }
@@ -63,6 +62,7 @@ public class AppApplication extends Application {
         return okHttpClient.build();
 
     }
+
     private static final Interceptor mCacheControlInterceptor = new Interceptor() {
         @Override
         public Response intercept(Interceptor.Chain chain) throws IOException {
