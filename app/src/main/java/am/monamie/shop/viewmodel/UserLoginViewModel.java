@@ -20,7 +20,7 @@ public class UserLoginViewModel extends AndroidViewModel {
 
     public void loginUser(UserLogin userLogin) {
         repository = new UserLoginRepository();
-        liveData = repository.init(userLogin);
+        liveData = repository.initRequest(userLogin);
     }
 
     public LiveData<UserLoginResponse> getLiveData() {

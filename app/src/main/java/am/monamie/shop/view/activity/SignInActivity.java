@@ -67,7 +67,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                     // Update the UI.
                     if (response != null) {
                         Log.i(TAG, "onClick: Response Successfully");
-                    }else {
+                    } else {
                         Log.i(TAG, "onClick: Response Null");
                     }
 

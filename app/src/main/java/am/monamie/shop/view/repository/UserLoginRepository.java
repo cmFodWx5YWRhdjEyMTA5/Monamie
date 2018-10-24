@@ -17,7 +17,7 @@ public class UserLoginRepository {
     private static final String TAG = UserLoginRepository.class.getName();
     private ApiService apiService;
 
-    public LiveData<UserLoginResponse> init(UserLogin userLogin) {
+    public LiveData<UserLoginResponse> initRequest(UserLogin userLogin) {
         final MutableLiveData<UserLoginResponse> data = new MutableLiveData<>();
         AppApplication.appApplication.getNetworkService().loginUser(userLogin).enqueue(new Callback<UserLoginResponse>() {
             @Override
