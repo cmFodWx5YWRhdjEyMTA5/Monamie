@@ -13,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
+import android.widget.Toast;
 
 import am.monamie.shop.R;
 import am.monamie.shop.view.util.DeviceUtils;
@@ -53,12 +54,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         if (!DeviceUtils.isNetworkConnectionAvailable(context)) {
             showNetworkDialog();
         } else {
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    goGeneralScreen(activity);
-                }
+            handler.postDelayed(() -> {
+                DeviceUtils.deviceToken();
+                goGeneralScreen(activity);
             }, 3000);
+
         }
     }
 
@@ -73,16 +73,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(getString(R.string.connect_to_network))
                 .setCancelable(false)
-                .setPositiveButton(getString(R.string.connect_to_wifi), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
-                    }
-                })
-                .setNegativeButton(getString(R.string.quit), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        finish();
-                    }
-                });
+                .setPositiveButton(getString(R.string.connect_to_wifi), (dialog, id) -> startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS)))
+                .setNegativeButton(getString(R.string.quit), (dialog, id) -> finish());
         if (alertDialog == null) {
             alertDialog = builder.create();
             alertDialog.show();

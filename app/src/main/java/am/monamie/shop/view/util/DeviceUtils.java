@@ -5,14 +5,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.Locale;
 
 public class DeviceUtils {
     private static final String TAG = DeviceUtils.class.getName();
+    private static String token;
 
     public static String deviceId(Context context) {
         @SuppressLint("HardwareIds") String device_UDID = android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
@@ -48,6 +56,28 @@ public class DeviceUtils {
                 }
             }
         }
+    }
+
+    public static String deviceToken() {
+        FirebaseInstanceId
+                .getInstance()
+                .getInstanceId()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        token = null;
+                        Log.w(TAG, "getInstanceId failed", task.getException());
+                        return;
+                    }
+                    // Get new Instance ID token
+                    if (task.getResult() != null) {
+                        token = task.getResult().getToken();
+                        Log.i(TAG, "deviceToken: Successfully " + token);
+                    } else {
+                        token = null;
+                        Log.i(TAG, "deviceToken: FireBase task result equals NULL");
+                    }
+                });
+        return token;
     }
 
 }
