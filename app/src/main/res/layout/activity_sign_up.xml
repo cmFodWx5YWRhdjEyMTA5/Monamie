@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/sign_up_background"
     android:layout_height="match_parent"
+    android:background="@drawable/sign_up_background"
     tools:context=".view.activity.SignUpActivity">
 
     <ScrollView
@@ -107,12 +107,12 @@
                     android:textColorHint="#302b2c" />
 
                 <Button
-                    android:id="@+id/SignInLogInID"
+                    android:id="@+id/SignUpRegisterID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/round_button"
-                    android:text="@string/log_in"
+                    android:text="@string/register"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </LinearLayout>

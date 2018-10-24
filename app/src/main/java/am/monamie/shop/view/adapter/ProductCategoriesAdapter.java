@@ -10,13 +10,13 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import am.monamie.shop.R;
-import am.monamie.shop.model.ProductCategories;
+import am.monamie.shop.model.get.ProductCategoriesResponse;
 
 public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCategoriesAdapter.MyViewHolder> {
     private Context context;
-    private List<ProductCategories> list;
+    private List<ProductCategoriesResponse> list;
 
-    public ProductCategoriesAdapter(Context context, List<ProductCategories> list) {
+    public ProductCategoriesAdapter(Context context, List<ProductCategoriesResponse> list) {
         this.context = context;
         this.list = list;
     }

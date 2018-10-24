@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import java.util.Objects;
 
 import am.monamie.shop.AppApplication;
-import am.monamie.shop.model.ProductCategories;
+import am.monamie.shop.model.get.ProductCategoriesResponse;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -19,7 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProductViewModel extends AndroidViewModel {
-    private MutableLiveData<ProductCategories> mutableLiveData = new MutableLiveData<>();
+    private MutableLiveData<ProductCategoriesResponse> mutableLiveData = new MutableLiveData<>();
 
     public ProductViewModel(@NonNull Application application) {
         super(application);
@@ -31,9 +31,9 @@ public class ProductViewModel extends AndroidViewModel {
                 .appApplication
                 .getNetworkService()
                 .getMonamieProducts()
-                .enqueue(new Callback<ProductCategories>() {
+                .enqueue(new Callback<ProductCategoriesResponse>() {
                     @Override
-                    public void onResponse(Call<ProductCategories> call, Response<ProductCategories> response) {
+                    public void onResponse(Call<ProductCategoriesResponse> call, Response<ProductCategoriesResponse> response) {
                         Observable.just(Objects.requireNonNull(response.body()))
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
@@ -41,22 +41,22 @@ public class ProductViewModel extends AndroidViewModel {
                     }
 
                     @Override
-                    public void onFailure(Call<ProductCategories> call, Throwable t) {
+                    public void onFailure(Call<ProductCategoriesResponse> call, Throwable t) {
 
                     }
                 });
     }
 
-    private Observer<ProductCategories> subscribeData() {
-        return new Observer<ProductCategories>() {
+    private Observer<ProductCategoriesResponse> subscribeData() {
+        return new Observer<ProductCategoriesResponse>() {
             @Override
             public void onSubscribe(Disposable d) {
 
             }
 
             @Override
-            public void onNext(ProductCategories productCategories) {
-                mutableLiveData.setValue(productCategories);
+            public void onNext(ProductCategoriesResponse productCategoriesResponse) {
+                mutableLiveData.setValue(productCategoriesResponse);
             }
 
             @Override
@@ -71,7 +71,7 @@ public class ProductViewModel extends AndroidViewModel {
         };
     }
 
-    public MutableLiveData<ProductCategories> getMutableLiveData() {
+    public MutableLiveData<ProductCategoriesResponse> getMutableLiveData() {
         return mutableLiveData;
     }
 

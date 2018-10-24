@@ -1,13 +1,13 @@
-package am.monamie.shop.model;
+package am.monamie.shop.model.get;
 
 import java.io.Serializable;
 
-public class ProductCategories implements Serializable{
+public class ProductCategoriesResponse implements Serializable{
     private long id;
     private String name;
     private String imageUrl;
 
-    public ProductCategories(long id, String name, String imageUrl) {
+    public ProductCategoriesResponse(long id, String name, String imageUrl) {
         this.id = id;
         this.name = name;
         this.imageUrl = imageUrl;

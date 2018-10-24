@@ -6,8 +6,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import am.monamie.shop.R;
 import am.monamie.shop.view.fragment.DatePickerFragment;
@@ -18,6 +20,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     // Views
     private EditText firstName, lastName, email, password, confirmPassword;
     private TextView birdOfDay;
+    private Button register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         confirmPassword = findViewById(R.id.SignUpConfirmPasswordID);
         birdOfDay = findViewById(R.id.SignUpBirdOfDayID);
         birdOfDay.setOnClickListener(this);
+        register = findViewById(R.id.SignUpRegisterID);
+        register.setOnClickListener(this);
 
     }
 
@@ -57,6 +62,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.SignUpBirdOfDayID:
                 DeviceUtils.closeKeyboard(this);
                 showDatePickerDialog();
+                break;
+            case R.id.SignUpRegisterID:
+                Toast.makeText(this, "Register", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

@@ -1,16 +1,24 @@
 package am.monamie.shop.view.activity;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
 import am.monamie.shop.R;
+import am.monamie.shop.model.get.UserRegistrationResponse;
+import am.monamie.shop.model.post.User;
+import am.monamie.shop.viewmodel.UserLoginViewModel;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = SignInActivity.class.getName();
@@ -19,6 +27,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private EditText email, password;
     private Button logIn;
     private TextView signUp;
+    // Object
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +43,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         email = findViewById(R.id.SignInEmailID);
         password = findViewById(R.id.SignInPasswordID);
         logIn = findViewById(R.id.SignInLogInID);
+        logIn.setOnClickListener(this);
         signUp = findViewById(R.id.SignInSignUpID);
         signUp.setOnClickListener(this);
     }
@@ -47,9 +58,23 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.SignInSignUpID:
                 startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
+                break;
+            case R.id.SignInLogInID:
+                user = new User(email.getText().toString(), password.getText().toString());
+                UserLoginViewModel viewModel = ViewModelProviders.of(this).get(UserLoginViewModel.class);
+                viewModel.loginUser(user);
+                // Create the observer which updates the UI.
+                final Observer<UserRegistrationResponse> nameObserver = response -> {
+                    // Update the UI, in this case, a TextView.
+                    if (response != null) {
+                        Log.i(TAG, "onClick: Response Successfully");
+                    }
+
+                };
+                viewModel.getLiveData().observe(this, nameObserver);
                 break;
         }
     }
