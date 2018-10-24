@@ -19,6 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProductViewModel extends AndroidViewModel {
+    private static final String TAG = ProductViewModel.class.getName();
     private MutableLiveData<ProductCategoriesResponse> mutableLiveData = new MutableLiveData<>();
 
     public ProductViewModel(@NonNull Application application) {
@@ -30,7 +31,7 @@ public class ProductViewModel extends AndroidViewModel {
         AppApplication
                 .appApplication
                 .getNetworkService()
-                .getMonamieProducts()
+                .getMonAmieProducts()
                 .enqueue(new Callback<ProductCategoriesResponse>() {
                     @Override
                     public void onResponse(Call<ProductCategoriesResponse> call, Response<ProductCategoriesResponse> response) {

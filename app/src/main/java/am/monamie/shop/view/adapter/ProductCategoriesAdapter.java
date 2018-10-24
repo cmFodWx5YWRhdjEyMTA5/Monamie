@@ -13,6 +13,7 @@ import am.monamie.shop.R;
 import am.monamie.shop.model.get.ProductCategoriesResponse;
 
 public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCategoriesAdapter.MyViewHolder> {
+    private static final String TAG = ProductCategoriesAdapter.class.getName();
     private Context context;
     private List<ProductCategoriesResponse> list;
 

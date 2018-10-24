@@ -13,7 +13,7 @@ import am.monamie.shop.R;
  * A simple {@link Fragment} subclass.
  */
 public class PolicyFragment extends Fragment {
-
+    private static final String TAG = PolicyFragment.class.getName();
 
     public PolicyFragment() {
         // Required empty public constructor

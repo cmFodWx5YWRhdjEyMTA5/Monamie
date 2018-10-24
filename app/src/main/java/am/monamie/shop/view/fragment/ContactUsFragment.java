@@ -19,7 +19,7 @@ import am.monamie.shop.view.activity.MainActivity;
  * A simple {@link Fragment} subclass.
  */
 public class ContactUsFragment extends Fragment {
-
+    private static final String TAG = ContactUsFragment.class.getName();
     private Context context;
     private View view;
 

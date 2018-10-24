@@ -13,7 +13,7 @@ import am.monamie.shop.R;
  * A simple {@link Fragment} subclass.
  */
 public class PaymentSystemFragment extends Fragment {
-
+    private static final String TAG = PaymentSystemFragment.class.getName();
 
     public PaymentSystemFragment() {
         // Required empty public constructor

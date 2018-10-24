@@ -5,24 +5,25 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import am.monamie.shop.model.get.UserRegistrationResponse;
-import am.monamie.shop.model.post.User;
+import am.monamie.shop.model.get.UserLoginResponse;
+import am.monamie.shop.model.post.UserLogin;
 import am.monamie.shop.view.repository.UserLoginRepository;
 
 public class UserLoginViewModel extends AndroidViewModel {
-    private LiveData<UserRegistrationResponse> liveData;
+    private static final String TAG = UserLoginViewModel.class.getName();
+    private LiveData<UserLoginResponse> liveData;
     private UserLoginRepository repository;
 
     public UserLoginViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public void loginUser(User user) {
+    public void loginUser(UserLogin userLogin) {
         repository = new UserLoginRepository();
-        liveData = repository.init(user);
+        liveData = repository.init(userLogin);
     }
 
-    public LiveData<UserRegistrationResponse> getLiveData() {
+    public LiveData<UserLoginResponse> getLiveData() {
         return liveData;
     }
 }

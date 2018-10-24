@@ -13,7 +13,7 @@ import am.monamie.shop.R;
  * A simple {@link Fragment} subclass.
  */
 public class OrderHistoryFragment extends Fragment {
-
+    private static final String TAG = OrderHistoryFragment.class.getName();
 
     public OrderHistoryFragment() {
         // Required empty public constructor

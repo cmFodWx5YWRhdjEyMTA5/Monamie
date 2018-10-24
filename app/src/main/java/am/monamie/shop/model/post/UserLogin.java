@@ -2,11 +2,11 @@ package am.monamie.shop.model.post;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class UserLogin implements Serializable {
     private String email;
     private String password;
 
-    public User(String email, String password) {
+    public UserLogin(String email, String password) {
         this.email = email;
         this.password = password;
     }
@@ -21,7 +21,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserLogin{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';

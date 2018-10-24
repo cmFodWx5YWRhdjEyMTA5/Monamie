@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "588557468416",
+    "firebase_url": "https://monamie-c38dc.firebaseio.com",
+    "project_id": "monamie-c38dc",
+    "storage_bucket": "monamie-c38dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588557468416:android:dda19feb502d9429",
+        "android_client_info": {
+          "package_name": "am.monamie.shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588557468416-lbk17tj476th1l4t1tkcrue07rvoic43.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "am.monamie.shop",
+            "certificate_hash": "61e9d311d92e07f8350da4390a77ee41b574f00e"
+          }
+        },
+        {
+          "client_id": "588557468416-p8dievfo6t3ul9mv5jnvvlqtkcs86cff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLDz4T1Yb_AxjJ5ZVyS47barpcJfS7db0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588557468416-p8dievfo6t3ul9mv5jnvvlqtkcs86cff.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

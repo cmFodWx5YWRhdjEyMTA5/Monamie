@@ -16,9 +16,10 @@ import am.monamie.shop.view.activity.MainActivity;
  * A simple {@link Fragment} subclass.
  */
 public class ProductCategoriesFragment extends Fragment {
-
+    private static final String TAG = ProductCategoriesFragment.class.getName();
     private Context context;
     private View view;
+
     public ProductCategoriesFragment() {
         // Required empty public constructor
     }
@@ -33,7 +34,7 @@ public class ProductCategoriesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view =  inflater.inflate(R.layout.fragment_product_categories, container, false);
+        view = inflater.inflate(R.layout.fragment_product_categories, container, false);
         context = getContext();
         FragmentManager fragmentManager = getFragmentManager();
 

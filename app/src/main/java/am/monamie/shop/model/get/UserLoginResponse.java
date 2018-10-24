@@ -1,8 +1,8 @@
 package am.monamie.shop.model.get;
 
-public class UserRegistrationResponse {
+public class UserLoginResponse {
     private String token;
-    private UserLoginResponse.User user;
+    private User user;
 
     public String getToken() {
         return token;
@@ -12,11 +12,11 @@ public class UserRegistrationResponse {
         this.token = token;
     }
 
-    public UserLoginResponse.User getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(UserLoginResponse.User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
