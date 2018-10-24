@@ -70,7 +70,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                     } else {
                         Log.i(TAG, "onClick: Response Null");
                     }
-
                 };
                 viewModel.getLiveData().observe(this, nameObserver);
                 break;

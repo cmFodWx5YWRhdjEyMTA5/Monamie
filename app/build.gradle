@@ -49,8 +49,13 @@ dependencies {
     // Retrofit2
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-    // Firebase
+    // FireBase
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
+   /* // Dagger 2
+    implementation 'com.google.dagger:dagger-android:2.14.1'
+    implementation 'com.google.dagger:dagger-android-support:2.14.1' // if you use the support libraries
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.14.1'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'*/
 }
 apply plugin: 'com.google.gms.google-services'
