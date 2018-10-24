@@ -18,6 +18,8 @@ import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.Locale;
 
+import am.monamie.shop.view.helper.SharedPreferencesHelper;
+
 public class DeviceUtils {
     private static final String TAG = DeviceUtils.class.getName();
     private static String token;
@@ -58,7 +60,7 @@ public class DeviceUtils {
         }
     }
 
-    public static String deviceToken() {
+    public static String deviceToken(Context context) {
         FirebaseInstanceId
                 .getInstance()
                 .getInstanceId()
@@ -71,6 +73,7 @@ public class DeviceUtils {
                     // Get new Instance ID token
                     if (task.getResult() != null) {
                         token = task.getResult().getToken();
+                        SharedPreferencesHelper.putKey(context,"device_token",token);
                         Log.i(TAG, "deviceToken: Successfully " + token);
                     } else {
                         token = null;

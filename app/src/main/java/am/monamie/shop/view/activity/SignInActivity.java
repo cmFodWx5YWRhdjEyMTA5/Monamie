@@ -12,10 +12,12 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import am.monamie.shop.R;
 import am.monamie.shop.model.get.UserLoginResponse;
 import am.monamie.shop.model.post.UserLogin;
+import am.monamie.shop.view.helper.SharedPreferencesHelper;
 import am.monamie.shop.viewmodel.UserLoginViewModel;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
@@ -33,6 +35,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_sign_in);
         windowConfiguration(getWindow(), getSupportActionBar());
         initViews();
+        Toast.makeText(this, SharedPreferencesHelper.getKey(this, "device_token"), Toast.LENGTH_SHORT).show();
     }
 
     private void initViews() {

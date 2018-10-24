@@ -1,8 +1,10 @@
 package am.monamie.shop.view.webservice;
 
+import am.monamie.shop.model.get.CreateDeviceResponse;
 import am.monamie.shop.model.get.ProductCategoriesResponse;
 import am.monamie.shop.model.get.UserLoginResponse;
 import am.monamie.shop.model.get.UserRegistrationResponse;
+import am.monamie.shop.model.post.CreateDevice;
 import am.monamie.shop.model.post.UserLogin;
 import am.monamie.shop.model.post.UserRegistration;
 import retrofit2.Call;
@@ -19,4 +21,7 @@ public interface ApiService {
 
     @POST("auth/register")
     Call<UserRegistrationResponse> registerUser(@Body UserRegistration userRegistration);
+
+    @POST("devices")
+    Call<CreateDeviceResponse> createDevice(@Body CreateDevice createDevice);
 }
