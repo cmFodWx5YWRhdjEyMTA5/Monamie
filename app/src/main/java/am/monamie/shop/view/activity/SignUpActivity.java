@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private Button register;
     private TextView dialogText;
     private Button dialogButton;
+    private ProgressBar progressBar;
     // Object
     private UserRegistration userRegistration;
 
@@ -55,6 +57,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         birdOfDay.setOnClickListener(this);
         register = findViewById(R.id.SignUpRegisterID);
         register.setOnClickListener(this);
+        progressBar = findViewById(R.id.SignUpProgressBarId);
     }
 
     private void initUserRegistrationDialogView(View view) {
@@ -84,16 +87,19 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 showDatePickerDialog();
                 break;
             case R.id.SignUpRegisterID:
+                progressBar.setVisibility(View.VISIBLE);
                 userRegistration = new UserRegistration(firstName.getText().toString(), lastName.getText().toString(), email.getText().toString(), password.getText().toString(), "2014-09-02T08:05:23.653Z");
                 UserRegistrationViewModel viewModel = ViewModelProviders.of(this).get(UserRegistrationViewModel.class);
                 viewModel.registerUser(userRegistration);
                 // Created Observe with update UI.
                 final Observer<UserRegistrationResponse> nameObserver = response -> {
                     // Update the UI
-                    if (response != null) {
+                    if (response != null && response.getSuccess()) {
+                        progressBar.setVisibility(View.GONE);
                         showUserRegistrationDialog(true);
                         Log.i(TAG, "onClick: Response Successfully");
                     } else {
+                        progressBar.setVisibility(View.GONE);
                         showUserRegistrationDialog(false);
                         Log.i(TAG, "onClick: Response Null");
                     }
@@ -126,7 +132,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             password.setText("");
             confirmPassword.setText("");
             alertDialog.dismiss();
-            startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+            if (isRegisterSuccess) {
+                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+            }
         });
     }
 }

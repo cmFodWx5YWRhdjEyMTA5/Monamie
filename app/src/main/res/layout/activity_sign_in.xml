@@ -5,7 +5,13 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
     tools:context=".view.activity.SignInActivity">
-
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/SignInProgressBarId"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

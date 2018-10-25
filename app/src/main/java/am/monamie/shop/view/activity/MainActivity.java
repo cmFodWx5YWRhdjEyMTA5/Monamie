@@ -15,9 +15,14 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import am.monamie.shop.R;
+import am.monamie.shop.view.constants.MonamieEnum;
 import am.monamie.shop.view.fragment.ContactUsFragment;
 import am.monamie.shop.view.fragment.ProductCategoriesFragment;
+import am.monamie.shop.view.helper.SharedPreferencesHelper;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = MainActivity.class.getName();
@@ -42,6 +47,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         configurationScreenWindow(window, toggle);
         createFragment(R.id.fragment_Container, productCategoriesFragment);
+        List<String> list = new ArrayList<>();
+        list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.FIRST_NAME.getValue()));
+        list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.LAST_NAME.getValue()));
+        list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.EMAIL.getValue()));
+        list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.FULL_NAME.getValue()));
+        list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.USER_TOKEN.getValue()));
+        System.out.println("User Details Information======>   " + list);
     }
 
     private void initViews() {
