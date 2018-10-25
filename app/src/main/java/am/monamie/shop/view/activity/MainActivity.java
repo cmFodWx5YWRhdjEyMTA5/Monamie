@@ -2,6 +2,7 @@ package am.monamie.shop.view.activity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import am.monamie.shop.R;
-import am.monamie.shop.view.constants.MonamieEnum;
+import am.monamie.shop.view.constants.MonAmieEnum;
 import am.monamie.shop.view.fragment.ContactUsFragment;
 import am.monamie.shop.view.fragment.ProductCategoriesFragment;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
@@ -51,14 +52,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Window window = getWindow();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         configurationScreenWindow(window, toggle);
-        configurationNavigationViews(SharedPreferencesHelper.getKey(this, MonamieEnum.FULL_NAME.getValue()), SharedPreferencesHelper.getKey(this, MonamieEnum.EMAIL.getValue()));
+        configurationNavigationViews(SharedPreferencesHelper.getKey(this, MonAmieEnum.FULL_NAME.getValue()), SharedPreferencesHelper.getKey(this, MonAmieEnum.EMAIL.getValue()));
         createFragment(R.id.fragment_Container, productCategoriesFragment);
         List<String> list = new ArrayList<>();
-        list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.FIRST_NAME.getValue()));
-        list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.LAST_NAME.getValue()));
-        list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.EMAIL.getValue()));
-        list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.FULL_NAME.getValue()));
-        list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.USER_TOKEN.getValue()));
+        list.add(SharedPreferencesHelper.getKey(this, MonAmieEnum.FIRST_NAME.getValue()));
+        list.add(SharedPreferencesHelper.getKey(this, MonAmieEnum.LAST_NAME.getValue()));
+        list.add(SharedPreferencesHelper.getKey(this, MonAmieEnum.EMAIL.getValue()));
+        list.add(SharedPreferencesHelper.getKey(this, MonAmieEnum.FULL_NAME.getValue()));
+        list.add(SharedPreferencesHelper.getKey(this, MonAmieEnum.USER_TOKEN.getValue()));
         System.out.println("User Details Information======>   " + list);
     }
 
@@ -72,11 +73,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initViews() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar =  findViewById(R.id.toolbar);
         toolbarTitle = toolbar.findViewById(R.id.toolbarTitleID);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        fab =  findViewById(R.id.fab);
+        drawer =  findViewById(R.id.drawer_layout);
+        navigationView =  findViewById(R.id.nav_view);
         headerView = navigationView.getHeaderView(0);
         userFullNameNavHeader = headerView.findViewById(R.id.UserFullNameTextViewId);
         userEmailNavHeader = headerView.findViewById(R.id.UserEmailTextViewId);
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch (id) {

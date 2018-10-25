@@ -20,7 +20,7 @@ import android.widget.Toast;
 import am.monamie.shop.R;
 import am.monamie.shop.model.get.UserLoginResponse;
 import am.monamie.shop.model.post.UserLogin;
-import am.monamie.shop.view.constants.MonamieEnum;
+import am.monamie.shop.view.constants.MonAmieEnum;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
 import am.monamie.shop.view.util.MonamieAnimation;
 import am.monamie.shop.viewmodel.UserLoginViewModel;
@@ -43,7 +43,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_sign_in);
         windowConfiguration(getWindow(), getSupportActionBar());
         initViews();
-        Toast.makeText(this, SharedPreferencesHelper.getKey(this, "device_token"), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, SharedPreferencesHelper.getKey(this, MonAmieEnum.TOKEN_FCM.getValue()), Toast.LENGTH_SHORT).show();
     }
 
     private void initViews() {
@@ -67,6 +67,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             actionBar.hide();
         if (window != null) {
             //FIXME: need change window color
+            Log.i(TAG, "windowConfiguration: ");
         }
     }
 
@@ -90,11 +91,11 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                             progressBar.setVisibility(View.GONE);
                             showUserLoginDialog();
                         } else {
-                            SharedPreferencesHelper.putKey(this, MonamieEnum.FIRST_NAME.getValue(), response.getData().getUser().getFirstName());
-                            SharedPreferencesHelper.putKey(this, MonamieEnum.LAST_NAME.getValue(), response.getData().getUser().getLastName());
-                            SharedPreferencesHelper.putKey(this, MonamieEnum.EMAIL.getValue(), response.getData().getUser().getEmail());
-                            SharedPreferencesHelper.putKey(this, MonamieEnum.FULL_NAME.getValue(), response.getData().getUser().getFullName());
-                            SharedPreferencesHelper.putKey(this, MonamieEnum.USER_TOKEN.getValue(), response.getData().getToken());
+                            SharedPreferencesHelper.putKey(this, MonAmieEnum.FIRST_NAME.getValue(), response.getData().getUser().getFirstName());
+                            SharedPreferencesHelper.putKey(this, MonAmieEnum.LAST_NAME.getValue(), response.getData().getUser().getLastName());
+                            SharedPreferencesHelper.putKey(this, MonAmieEnum.EMAIL.getValue(), response.getData().getUser().getEmail());
+                            SharedPreferencesHelper.putKey(this, MonAmieEnum.FULL_NAME.getValue(), response.getData().getUser().getFullName());
+                            SharedPreferencesHelper.putKey(this, MonAmieEnum.USER_TOKEN.getValue(), response.getData().getToken());
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
