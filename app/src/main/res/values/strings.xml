@@ -51,4 +51,8 @@
     <string name="default_notification_channel_id">1</string>
     <string name="fcm_message">FCM Message</string>
 
+    <!--User Login Dialog-->
+    <string name="user_login_dialog_message_text">Login Failed !!!</string>
+    <string name="user_login_dialog_button_text">OK</string>
+
 </resources>

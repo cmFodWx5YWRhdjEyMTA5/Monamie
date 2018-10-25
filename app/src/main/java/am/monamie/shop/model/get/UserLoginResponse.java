@@ -1,29 +1,61 @@
 package am.monamie.shop.model.get;
 
 public class UserLoginResponse {
-    private String token;
-    private User user;
+    private Boolean success;
+    private String message;
+    private UserLoginResponse.Data data;
 
-    public String getToken() {
-        return token;
+    public Boolean getSuccess() {
+        return success;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setSuccess(Boolean success) {
+        this.success = success;
     }
 
-    public User getUser() {
-        return user;
+    public String getMessage() {
+        return message;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    static class User {
+    public UserLoginResponse.Data getData() {
+        return data;
+    }
+
+    public void setData(UserLoginResponse.Data data) {
+        this.data = data;
+    }
+
+    public class Data {
+        private String token;
+        private UserLoginResponse.User user;
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
+        }
+
+        public UserLoginResponse.User getUser() {
+            return user;
+        }
+
+        public void setUser(UserLoginResponse.User user) {
+            this.user = user;
+        }
+    }
+
+    public class User {
+
         private String firstName;
         private String lastName;
         private String email;
+        private String dob;
         private String updatedAt;
         private String createdAt;
         private String id;
@@ -51,6 +83,14 @@ public class UserLoginResponse {
 
         public void setEmail(String email) {
             this.email = email;
+        }
+
+        public String getDob() {
+            return dob;
+        }
+
+        public void setDob(String dob) {
+            this.dob = dob;
         }
 
         public String getUpdatedAt() {

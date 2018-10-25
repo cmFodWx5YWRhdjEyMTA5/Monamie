@@ -1,5 +1,6 @@
 package am.monamie.shop.view.activity;
 
+import android.app.AlertDialog;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -18,6 +20,7 @@ import am.monamie.shop.R;
 import am.monamie.shop.model.get.UserLoginResponse;
 import am.monamie.shop.model.post.UserLogin;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
+import am.monamie.shop.view.util.MonamieAnimation;
 import am.monamie.shop.viewmodel.UserLoginViewModel;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
@@ -26,6 +29,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private EditText email, password;
     private Button logIn;
     private TextView signUp;
+    private TextView dialogText;
+    private Button dialogButton;
     // Object
     private UserLogin userLogin;
 
@@ -45,6 +50,12 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         logIn.setOnClickListener(this);
         signUp = findViewById(R.id.SignInSignUpID);
         signUp.setOnClickListener(this);
+    }
+
+    private void initUserLoginDialogView(View view) {
+        dialogText = view.findViewById(R.id.SignInLoginDialogMessageID);
+        dialogButton = view.findViewById(R.id.SignInLoginDialogButtonID);
+        dialogButton.setOnClickListener(this);
     }
 
     private void windowConfiguration(Window window, ActionBar actionBar) {
@@ -70,12 +81,35 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                     // Update the UI.
                     if (response != null) {
                         Log.i(TAG, "onClick: Response Successfully");
+                        Toast.makeText(this, "Response Successfully", Toast.LENGTH_SHORT).show();
                     } else {
+                        showUserLoginDialog();
                         Log.i(TAG, "onClick: Response Null");
                     }
                 };
                 viewModel.getLiveData().observe(this, nameObserver);
                 break;
         }
+    }
+
+    private void showUserLoginDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.user_login_dialog, null);
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.setCancelable(false);
+        // create dialog animation
+        MonamieAnimation.dialogShowAnimation(this, dialogView, R.anim.dialog_animation);
+        //init views
+        initUserLoginDialogView(dialogView);
+        //show dialog
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+        // onClick
+        dialogButton.setOnClickListener(v -> {
+            email.setText("");
+            password.setText("");
+            alertDialog.dismiss();
+        });
     }
 }
