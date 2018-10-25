@@ -11,7 +11,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FloatingActionButton fab;
     private DrawerLayout drawer;
     private NavigationView navigationView;
+    private View headerView;
+    private TextView userFullNameNavHeader;
+    private TextView userEmailNavHeader;
     public TextView toolbarTitle;
 
     private ProductCategoriesFragment productCategoriesFragment = new ProductCategoriesFragment();
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Window window = getWindow();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         configurationScreenWindow(window, toggle);
+        configurationNavigationViews(SharedPreferencesHelper.getKey(this, MonamieEnum.FULL_NAME.getValue()), SharedPreferencesHelper.getKey(this, MonamieEnum.EMAIL.getValue()));
         createFragment(R.id.fragment_Container, productCategoriesFragment);
         List<String> list = new ArrayList<>();
         list.add(SharedPreferencesHelper.getKey(this, MonamieEnum.FIRST_NAME.getValue()));
@@ -56,12 +62,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         System.out.println("User Details Information======>   " + list);
     }
 
+    private void configurationNavigationViews(String fullName, String email) {
+        if (fullName != null && email != null) {
+            userFullNameNavHeader.setText(fullName);
+            userEmailNavHeader.setText(email);
+        } else {
+            Log.i(TAG, "configurationNavigationViews: could not get user data from SharedPreferences");
+        }
+    }
+
     private void initViews() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbarTitle = toolbar.findViewById(R.id.toolbarTitleID);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
+        headerView = navigationView.getHeaderView(0);
+        userFullNameNavHeader = headerView.findViewById(R.id.UserFullNameTextViewId);
+        userEmailNavHeader = headerView.findViewById(R.id.UserEmailTextViewId);
         navigationView.setNavigationItemSelectedListener(this);
     }
 

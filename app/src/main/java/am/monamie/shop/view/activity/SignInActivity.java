@@ -95,7 +95,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                             SharedPreferencesHelper.putKey(this, MonamieEnum.EMAIL.getValue(), response.getData().getUser().getEmail());
                             SharedPreferencesHelper.putKey(this, MonamieEnum.FULL_NAME.getValue(), response.getData().getUser().getFullName());
                             SharedPreferencesHelper.putKey(this, MonamieEnum.USER_TOKEN.getValue(), response.getData().getToken());
-                            startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                            finish();
                             progressBar.setVisibility(View.GONE);
                             Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show();
                         }
