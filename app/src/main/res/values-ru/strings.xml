@@ -55,4 +55,8 @@
     <string name="user_login_dialog_message_text">Login Failed !!!</string>
     <string name="user_login_dialog_button_text">OK</string>
 
+    <!--User Registration Dialog-->
+    <string name="user_registration_dialog_success_message_text">Registration Successfully</string>
+    <string name="user_registration_dialog_button_text">OK</string>
+
 </resources>

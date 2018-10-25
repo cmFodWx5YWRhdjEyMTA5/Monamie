@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+        <TextView
+            android:id="@+id/SignUpDialogMessageID"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:text="@string/user_login_dialog_message_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/SignUpDialogButtonID"
+            android:layout_margin="30dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/user_login_dialog_button_text"
+            android:textColor="#fff"
+            android:background="#000"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+</RelativeLayout>

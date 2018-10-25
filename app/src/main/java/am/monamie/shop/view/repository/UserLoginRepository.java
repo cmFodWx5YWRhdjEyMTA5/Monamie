@@ -13,11 +13,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 public class UserLoginRepository {
     private static final String TAG = UserLoginRepository.class.getName();
-    private ApiService apiService;
 
     public LiveData<UserLoginResponse> initRequest(UserLogin userLogin) {
         final MutableLiveData<UserLoginResponse> data = new MutableLiveData<>();
-        AppApplication.appApplication.getNetworkService().loginUser(userLogin).enqueue(new Callback<UserLoginResponse>() {
+        AppApplication
+                .appApplication
+                .getNetworkService()
+                .loginUser(userLogin)
+                .enqueue(new Callback<UserLoginResponse>() {
             @Override
             public void onResponse(@NonNull Call<UserLoginResponse> call, @NonNull Response<UserLoginResponse> response) {
                 data.setValue(response.body());

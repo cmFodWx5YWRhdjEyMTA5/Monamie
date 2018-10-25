@@ -22,10 +22,7 @@ public class UserRegistrationRepository {
                 .enqueue(new Callback<UserRegistrationResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<UserRegistrationResponse> call, @NonNull Response<UserRegistrationResponse> response) {
-                        if (response.body() != null) {
-                            Log.i(TAG, "onResponse: Successfully");
                             data.setValue(response.body());
-                        }
                     }
 
                     @Override
