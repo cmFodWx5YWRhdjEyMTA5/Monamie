@@ -18,6 +18,7 @@ import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.Locale;
 
+import am.monamie.shop.view.constants.MonAmieEnum;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
 
 public class DeviceUtils {
@@ -35,9 +36,7 @@ public class DeviceUtils {
         if (connectivity != null) {
             NetworkInfo networkInfo = connectivity.getActiveNetworkInfo();
 
-            if (networkInfo != null && networkInfo.isConnectedOrConnecting()) {
-                return true;
-            }
+            return networkInfo != null && networkInfo.isConnectedOrConnecting();
         }
         return false;
     }
@@ -73,7 +72,7 @@ public class DeviceUtils {
                     // Get new Instance ID token
                     if (task.getResult() != null) {
                         token = task.getResult().getToken();
-                        SharedPreferencesHelper.putKey(context,"device_token",token);
+                        SharedPreferencesHelper.putKey(context, MonAmieEnum.TOKEN_FCM.getValue(),token);
                         Log.i(TAG, "deviceToken: Successfully " + token);
                     } else {
                         token = null;

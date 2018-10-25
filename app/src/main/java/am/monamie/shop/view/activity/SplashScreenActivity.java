@@ -5,23 +5,21 @@ import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
-import android.widget.Toast;
 
 import am.monamie.shop.R;
 import am.monamie.shop.model.get.CreateDeviceResponse;
 import am.monamie.shop.model.post.CreateDevice;
-import am.monamie.shop.view.constants.AppConstants;
+import am.monamie.shop.view.constants.MonAmieEnum;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
 import am.monamie.shop.view.util.DeviceUtils;
 import am.monamie.shop.viewmodel.CreateDeviceViewModel;
@@ -67,20 +65,21 @@ public class SplashScreenActivity extends AppCompatActivity {
         } else {
             // Created View Model for Device
             String deviceId = DeviceUtils.deviceId(this);
-            String deviceToken = SharedPreferencesHelper.getKey(this, "device_token");
-            createDevice = new CreateDevice(deviceId, deviceToken, AppConstants.DEVICE_TYPE);
+            String deviceToken = SharedPreferencesHelper.getKey(this, MonAmieEnum.TOKEN_FCM.getValue());
+            createDevice = new CreateDevice(deviceId, deviceToken, MonAmieEnum.DEVICE_TYPE.getValue());
             CreateDeviceViewModel viewModel = ViewModelProviders.of(this).get(CreateDeviceViewModel.class);
             viewModel.createDevice(createDevice);
             final Observer<CreateDeviceResponse> nameObserve = createDeviceResponse -> {
                 if (createDeviceResponse != null) {
                     // FIXME: need check :if create device equals true -> goGeneralScreen from handler
+                    Log.i(TAG, "checkNetworkConnection: ");
                 }
             };
             viewModel.getLiveData().observe(this, nameObserve);
 
 
             handler.postDelayed(() -> {
-
+                Log.i(TAG, "checkNetworkConnection: ");
                 goGeneralScreen(activity);
             }, 3000);
 
