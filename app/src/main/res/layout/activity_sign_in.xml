@@ -5,17 +5,18 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
     tools:context=".view.activity.SignInActivity">
+
     <ProgressBar
-        android:visibility="gone"
         android:id="@+id/SignInProgressBarId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:visibility="gone" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="15dp"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -71,27 +72,46 @@
                 android:text="@string/log_in"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/or"
+                android:textColor="#000"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/SignInSignUpID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_button_register"
+                android:text="@string/register"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/signUpLayoutId"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        android:paddingEnd="30dp"
-        android:paddingRight="30dp"
-        tools:ignore="RtlSymmetry">
+    <!-- <LinearLayout
+         android:id="@+id/signUpLayoutId"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:gravity="bottom"
+         android:orientation="horizontal"
+         android:paddingEnd="30dp"
+         android:paddingRight="30dp"
+         tools:ignore="RtlSymmetry">
 
-        <TextView
-            android:id="@+id/SignInSignUpID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:text="@string/create_account"
-            android:textColor="#000"
-            android:textSize="17sp" />
-    </LinearLayout>
+         <TextView
+             android:id="@+id/SignInSignUpID"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:gravity="end"
+             android:text="@string/create_account"
+             android:textColor="#000"
+             android:textSize="17sp" />
+     </LinearLayout>-->
 
 </RelativeLayout>

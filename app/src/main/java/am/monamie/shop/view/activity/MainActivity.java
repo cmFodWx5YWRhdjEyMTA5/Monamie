@@ -1,5 +1,6 @@
 package am.monamie.shop.view.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -73,11 +74,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initViews() {
-        toolbar =  findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         toolbarTitle = toolbar.findViewById(R.id.toolbarTitleID);
-        fab =  findViewById(R.id.fab);
-        drawer =  findViewById(R.id.drawer_layout);
-        navigationView =  findViewById(R.id.nav_view);
+        fab = findViewById(R.id.fab);
+        drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
         headerView = navigationView.getHeaderView(0);
         userFullNameNavHeader = headerView.findViewById(R.id.UserFullNameTextViewId);
         userEmailNavHeader = headerView.findViewById(R.id.UserEmailTextViewId);
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -105,6 +106,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.contact_us_menu_id:
                 createFragment(R.id.fragment_Container, contactUsFragment);
+                break;
+            case R.id.log_out_menu_id:
+                SharedPreferencesHelper.removeData(this, MonAmieEnum.EMAIL.getValue());
+                SharedPreferencesHelper.removeData(this, MonAmieEnum.PASSWORD.getValue());
+                SharedPreferencesHelper.removeData(this, MonAmieEnum.FIRST_NAME.getValue());
+                SharedPreferencesHelper.removeData(this, MonAmieEnum.LAST_NAME.getValue());
+                SharedPreferencesHelper.removeData(this, MonAmieEnum.FULL_NAME.getValue());
+                startActivity(new Intent(MainActivity.this, SignInActivity.class));
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);

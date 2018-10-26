@@ -30,7 +30,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     // Views
     private EditText email, password;
     private Button logIn;
-    private TextView signUp;
+    private Button signUp;
     private TextView dialogText;
     private Button dialogButton;
     private ProgressBar progressBar;
@@ -43,7 +43,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_sign_in);
         windowConfiguration(getWindow(), getSupportActionBar());
         initViews();
-        Toast.makeText(this, SharedPreferencesHelper.getKey(this, MonAmieEnum.TOKEN_FCM.getValue()), Toast.LENGTH_SHORT).show();
     }
 
     private void initViews() {
@@ -94,6 +93,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.FIRST_NAME.getValue(), response.getData().getUser().getFirstName());
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.LAST_NAME.getValue(), response.getData().getUser().getLastName());
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.EMAIL.getValue(), response.getData().getUser().getEmail());
+                            SharedPreferencesHelper.putKey(this, MonAmieEnum.PASSWORD.getValue(), password.getText().toString());
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.FULL_NAME.getValue(), response.getData().getUser().getFullName());
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.USER_TOKEN.getValue(), response.getData().getToken());
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);

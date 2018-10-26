@@ -43,6 +43,7 @@
     <string name="do_you_have_account">Do you have account ? Sign In</string>
     <string name="bird_of_day">Bird of day</string>
     <string name="register">Register</string>
+    <string name="or">OR</string>
 
     <!--Token-->
     <string name="gcm_token" translatable="false">Instance ID Token %s</string>
@@ -57,6 +58,10 @@
 
     <!--User Registration Dialog-->
     <string name="user_registration_dialog_success_message_text">Registration Successfully</string>
+    <string name="user_registration_dialog_field_message_text">Registration Field</string>
     <string name="user_registration_dialog_button_text">OK</string>
+    <string name="user_registration_day">Day</string>
+    <string name="user_registration_month">Month</string>
+    <string name="user_registration_year">Year</string>
 
 </resources>

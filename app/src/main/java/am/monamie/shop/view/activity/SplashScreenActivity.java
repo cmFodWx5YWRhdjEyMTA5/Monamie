@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -18,11 +19,14 @@ import android.view.Window;
 
 import am.monamie.shop.R;
 import am.monamie.shop.model.get.CreateDeviceResponse;
+import am.monamie.shop.model.get.UserLoginResponse;
 import am.monamie.shop.model.post.CreateDevice;
+import am.monamie.shop.model.post.UserLogin;
 import am.monamie.shop.view.constants.MonAmieEnum;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
 import am.monamie.shop.view.util.DeviceUtils;
 import am.monamie.shop.viewmodel.CreateDeviceViewModel;
+import am.monamie.shop.viewmodel.UserLoginViewModel;
 
 public class SplashScreenActivity extends AppCompatActivity {
     private static final String TAG = SplashScreenActivity.class.getName();
@@ -76,18 +80,41 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
             };
             viewModel.getLiveData().observe(this, nameObserve);
-
-
-            handler.postDelayed(() -> {
-                Log.i(TAG, "checkNetworkConnection: ");
-                goGeneralScreen(activity);
-            }, 3000);
-
+            isRedirectPersonalAccount(SharedPreferencesHelper.getKey(this, MonAmieEnum.EMAIL.getValue()), SharedPreferencesHelper.getKey(this, MonAmieEnum.PASSWORD.getValue()));
         }
     }
 
-    private void goGeneralScreen(Activity activity) {
+    private void isRedirectPersonalAccount(String email, String password) {
+        if (email != null && password != null) {
+            UserLogin userLogin = new UserLogin(email, password);
+            UserLoginViewModel viewModel = ViewModelProviders.of(this).get(UserLoginViewModel.class);
+            viewModel.loginUser(userLogin);
+            final Observer<UserLoginResponse> nameObserve = userLoginResponse -> {
+                if (userLoginResponse != null && userLoginResponse.getSuccess()) {
+                    // Sleep 2 second
+                    handler.postDelayed(() -> {
+                        goToAccountScreen(this);
+                    }, 2000);
+                } else {
+                    // Sleep 2 second
+                    handler.postDelayed(() -> {
+                        goToLoginScreen(this);
+                    }, 2000);
+                }
+            };
+            viewModel.getLiveData().observe(this, nameObserve);
+        }
+    }
+
+    private void goToLoginScreen(Activity activity) {
         Intent intent = new Intent(activity, SignInActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        activity.finish();
+    }
+
+    private void goToAccountScreen(Activity activity) {
+        Intent intent = new Intent(activity, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         activity.finish();

@@ -1,5 +1,6 @@
 package am.monamie.shop.view.helper;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -13,19 +14,23 @@ public class SharedPreferencesHelper {
         editor = sharedPreferences.edit();
         editor.putString(Key, Value);
         editor.apply();
-
     }
 
     public static String getKey(Context contextGetKey, String Key) {
         sharedPreferences = contextGetKey.getSharedPreferences("Cache", Context.MODE_PRIVATE);
-        String Value = sharedPreferences.getString(Key, "");
-        return Value;
-
+        String value = sharedPreferences.getString(Key, "");
+        return value;
     }
 
     public static void clearSharedPreferences(Context context) {
         sharedPreferences = context.getSharedPreferences("Cache", Context.MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
+    }
+
+    public static void removeData(Context context, String key) {
+        editor = sharedPreferences.edit();
+        editor.remove(key);
+        editor.apply();
     }
 
 }

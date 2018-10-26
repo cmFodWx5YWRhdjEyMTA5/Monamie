@@ -1,18 +1,30 @@
 package am.monamie.shop.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import java.util.Calendar;
 
+import am.monamie.shop.R;
+
+@SuppressLint("ValidFragment")
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
     private static final String TAG = DatePickerFragment.class.getName();
+    private TextView birdOfDay;
+    private Context context;
+
+    public DatePickerFragment(TextView birdOfDay, Context context) {
+        this.birdOfDay = birdOfDay;
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -24,11 +36,13 @@ public class DatePickerFragment extends DialogFragment
         int day = c.get(Calendar.DAY_OF_MONTH);
 
         // Create a new instance of DatePickerDialog and return it
-        return new DatePickerDialog(getActivity(), this, year, month, day);
+        return new DatePickerDialog(context, this, year, month, day);
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the user
-        Toast.makeText(getContext(), "Year: " + year + "Month: " + month + "Day: " + day, Toast.LENGTH_SHORT).show();
+        birdOfDay.setText(context.getResources().getString(R.string.user_registration_day).concat(":").concat(String.valueOf(day)).concat(" / ").concat(
+                context.getResources().getString(R.string.user_registration_month)).concat(":").concat(String.valueOf(month+1)).concat(" / ").concat(
+                context.getResources().getString(R.string.user_registration_year)).concat(":").concat(String.valueOf(year)));
     }
 }

@@ -75,7 +75,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void showDatePickerDialog() {
-        DialogFragment newFragment = new DatePickerFragment();
+        DialogFragment newFragment = new DatePickerFragment(birdOfDay, this);
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
