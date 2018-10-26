@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-
     private void configurationScreenWindow(Window window, ActionBarDrawerToggle actionBarDrawerToggle) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && window != null) {
             window.setStatusBarColor(getResources().getColor(R.color.general_screen_action_bar_background_color));

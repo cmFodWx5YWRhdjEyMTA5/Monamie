@@ -1,6 +1,5 @@
 package am.monamie.shop.view.helper;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
