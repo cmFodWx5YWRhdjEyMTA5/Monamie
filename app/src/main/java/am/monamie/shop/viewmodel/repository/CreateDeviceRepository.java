@@ -1,4 +1,4 @@
-package am.monamie.shop.view.repository;
+package am.monamie.shop.viewmodel.repository;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;

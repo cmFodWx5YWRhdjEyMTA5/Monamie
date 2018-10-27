@@ -1,4 +1,4 @@
-package am.monamie.shop.view.repository;
+package am.monamie.shop.viewmodel.repository;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
@@ -7,7 +7,6 @@ import android.util.Log;
 import am.monamie.shop.AppApplication;
 import am.monamie.shop.model.get.UserLoginResponse;
 import am.monamie.shop.model.post.UserLogin;
-import am.monamie.shop.view.webservice.ApiService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

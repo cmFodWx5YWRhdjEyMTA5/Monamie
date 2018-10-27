@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 
 import am.monamie.shop.model.get.UserLoginResponse;
 import am.monamie.shop.model.post.UserLogin;
-import am.monamie.shop.view.repository.UserLoginRepository;
+import am.monamie.shop.viewmodel.repository.UserLoginRepository;
 
 public class UserLoginViewModel extends AndroidViewModel {
     private static final String TAG = UserLoginViewModel.class.getName();

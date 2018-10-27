@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 
 import am.monamie.shop.model.get.UserRegistrationResponse;
 import am.monamie.shop.model.post.UserRegistration;
-import am.monamie.shop.view.repository.UserRegistrationRepository;
+import am.monamie.shop.viewmodel.repository.UserRegistrationRepository;
 
 public class UserRegistrationViewModel extends AndroidViewModel {
     private static final String TAG = UserRegistrationViewModel.class.getName();

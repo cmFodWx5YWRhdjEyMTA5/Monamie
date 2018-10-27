@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 
 import am.monamie.shop.model.get.CreateDeviceResponse;
 import am.monamie.shop.model.post.CreateDevice;
-import am.monamie.shop.view.repository.CreateDeviceRepository;
+import am.monamie.shop.viewmodel.repository.CreateDeviceRepository;
 
 public class CreateDeviceViewModel extends AndroidViewModel {
     private static final String TAG = CreateDeviceViewModel.class.getName();
