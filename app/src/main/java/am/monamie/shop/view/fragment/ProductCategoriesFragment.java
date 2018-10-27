@@ -80,6 +80,7 @@ public class ProductCategoriesFragment extends Fragment implements SwipeRefreshL
         recyclerView = view.findViewById(R.id.recyclerViewProductCategoriesID);
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayoutProductCategoriesID);
         swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(R.color.general_screen_action_bar_background_color);
     }
 
 
@@ -93,5 +94,7 @@ public class ProductCategoriesFragment extends Fragment implements SwipeRefreshL
     @Override
     public void onRefresh() {
         // get product data
+        swipeRefreshLayout.setRefreshing(false);
+        getProductCategoriesData();
     }
 }
