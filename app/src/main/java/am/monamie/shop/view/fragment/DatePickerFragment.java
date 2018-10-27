@@ -11,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import am.monamie.shop.R;
 
@@ -20,6 +21,7 @@ public class DatePickerFragment extends DialogFragment
     private static final String TAG = DatePickerFragment.class.getName();
     private TextView birdOfDay;
     private Context context;
+    private String isoDate;
 
     public DatePickerFragment(TextView birdOfDay, Context context) {
         this.birdOfDay = birdOfDay;

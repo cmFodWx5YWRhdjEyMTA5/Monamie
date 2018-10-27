@@ -55,11 +55,20 @@ public class UserRegistrationResponse {
         private String firstName;
         private String lastName;
         private String email;
+        private String phone;
         private String dob;
         private String updatedAt;
         private String createdAt;
         private String id;
         private String fullName;
+
+        public String getPhone() {
+            return phone;
+        }
+
+        public void setPhone(String phone) {
+            this.phone = phone;
+        }
 
         public String getFirstName() {
             return firstName;

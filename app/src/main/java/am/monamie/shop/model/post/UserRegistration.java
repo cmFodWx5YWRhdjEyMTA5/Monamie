@@ -6,13 +6,15 @@ public class UserRegistration implements Serializable {
     private String firstName;
     private String lastName;
     private String email;
+    private String phone;
     private String password;
     private String dob;
 
-    public UserRegistration(String firstName, String lastName, String email, String password, String dob) {
+    public UserRegistration(String firstName, String lastName, String email,String phone, String password, String dob) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.phone = phone;
         this.password = password;
         this.dob = dob;
     }
@@ -35,6 +37,10 @@ public class UserRegistration implements Serializable {
 
     public String getDob() {
         return dob;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 
     @Override

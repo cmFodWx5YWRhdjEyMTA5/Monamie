@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView userFullNameNavHeader;
     private TextView userEmailNavHeader;
     public TextView toolbarTitle;
-
+    // Objects
     private ProductCategoriesFragment productCategoriesFragment = new ProductCategoriesFragment();
     private ContactUsFragment contactUsFragment = new ContactUsFragment();
 
@@ -56,13 +56,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         configurationScreenWindow(window, toggle);
         configurationNavigationViews(SharedPreferencesHelper.getKey(this, MonAmieEnum.FULL_NAME.getValue()), SharedPreferencesHelper.getKey(this, MonAmieEnum.EMAIL.getValue()));
         createFragment(R.id.fragment_Container, productCategoriesFragment);
-        List<String> list = new ArrayList<>();
-        list.add(SharedPreferencesHelper.getKey(this, MonAmieEnum.FIRST_NAME.getValue()));
-        list.add(SharedPreferencesHelper.getKey(this, MonAmieEnum.LAST_NAME.getValue()));
-        list.add(SharedPreferencesHelper.getKey(this, MonAmieEnum.EMAIL.getValue()));
-        list.add(SharedPreferencesHelper.getKey(this, MonAmieEnum.FULL_NAME.getValue()));
-        list.add(SharedPreferencesHelper.getKey(this, MonAmieEnum.USER_TOKEN.getValue()));
-        System.out.println("User Details Information======>   " + list);
     }
 
     private void configurationNavigationViews(String fullName, String email) {
@@ -110,6 +103,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.log_out_menu_id:
                 SharedPreferencesHelper.removeData(this, MonAmieEnum.EMAIL.getValue());
+                SharedPreferencesHelper.removeData(this, MonAmieEnum.PHONE.getValue());
+                SharedPreferencesHelper.removeData(this, MonAmieEnum.USER_TOKEN.getValue());
                 SharedPreferencesHelper.removeData(this, MonAmieEnum.PASSWORD.getValue());
                 SharedPreferencesHelper.removeData(this, MonAmieEnum.FIRST_NAME.getValue());
                 SharedPreferencesHelper.removeData(this, MonAmieEnum.LAST_NAME.getValue());

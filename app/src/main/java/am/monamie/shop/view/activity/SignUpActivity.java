@@ -30,7 +30,7 @@ import am.monamie.shop.viewmodel.UserRegistrationViewModel;
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = SignUpActivity.class.getName();
     // Views
-    private EditText firstName, lastName, email, password, confirmPassword;
+    private EditText firstName, lastName, email, password, confirmPassword, phoneNumber;
     private TextView birdOfDay;
     private Button register;
     private TextView dialogText;
@@ -39,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private ProgressBar progressBar;
     // Object
     private UserRegistration userRegistration;
+    private UserRegistrationViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         progressBar = findViewById(R.id.SignUpProgressBarId);
         signIn = findViewById(R.id.SignUpSignInID);
         signIn.setOnClickListener(this);
+        phoneNumber = findViewById(R.id.SignUpPhoneNumberID);
+        phoneNumber.setOnClickListener(this);
     }
 
     private void initUserRegistrationDialogView(View view) {
@@ -94,8 +97,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.SignUpRegisterID:
                 progressBar.setVisibility(View.VISIBLE);
-                userRegistration = new UserRegistration(firstName.getText().toString(), lastName.getText().toString(), email.getText().toString(), password.getText().toString(), "2014-09-02T08:05:23.653Z");
-                UserRegistrationViewModel viewModel = ViewModelProviders.of(this).get(UserRegistrationViewModel.class);
+                userRegistration = new UserRegistration(firstName.getText().toString(), lastName.getText().toString(), email.getText().toString(), phoneNumber.getText().toString(), password.getText().toString(), "2014-09-02T08:05:23.653Z");
+                viewModel = ViewModelProviders.of(this).get(UserRegistrationViewModel.class);
                 viewModel.registerUser(userRegistration);
                 // Created Observe with update UI.
                 final Observer<UserRegistrationResponse> nameObserver = response -> {

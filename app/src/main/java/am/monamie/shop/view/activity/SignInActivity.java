@@ -36,6 +36,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private ProgressBar progressBar;
     // Object
     private UserLogin userLogin;
+    private UserLoginViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +80,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.SignInLogInID:
                 progressBar.setVisibility(View.VISIBLE);
                 userLogin = new UserLogin(email.getText().toString(), password.getText().toString());
-                UserLoginViewModel viewModel = ViewModelProviders.of(this).get(UserLoginViewModel.class);
+                viewModel = ViewModelProviders.of(this).get(UserLoginViewModel.class);
                 viewModel.loginUser(userLogin);
                 // Created the observer which updates the UI.
                 final Observer<UserLoginResponse> nameObserver = response -> {
@@ -93,6 +94,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.FIRST_NAME.getValue(), response.getData().getUser().getFirstName());
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.LAST_NAME.getValue(), response.getData().getUser().getLastName());
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.EMAIL.getValue(), response.getData().getUser().getEmail());
+                            SharedPreferencesHelper.putKey(this, MonAmieEnum.PHONE.getValue(), response.getData().getUser().getPhone());
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.PASSWORD.getValue(), password.getText().toString());
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.FULL_NAME.getValue(), response.getData().getUser().getFullName());
                             SharedPreferencesHelper.putKey(this, MonAmieEnum.USER_TOKEN.getValue(), response.getData().getToken());

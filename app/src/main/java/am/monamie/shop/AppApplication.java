@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import am.monamie.shop.view.constants.AppConstants;
+import am.monamie.shop.view.constants.MonAmieEnum;
+import am.monamie.shop.view.helper.SharedPreferencesHelper;
 import am.monamie.shop.view.webservice.ApiService;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
@@ -29,8 +31,11 @@ public class AppApplication extends Application {
         return initRetrofit(AppConstants.BASE_URL).create(ApiService.class);
     }
 
-    private Retrofit initRetrofit(String baseUrl) {
+    public ApiService getNetworkServiceWithToken() {
+        return initRetrofitWithToken(AppConstants.BASE_URL).create(ApiService.class);
+    }
 
+    private Retrofit initRetrofit(String baseUrl) {
         return new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(addCache())
@@ -38,6 +43,23 @@ public class AppApplication extends Application {
                 .build();
     }
 
+    private Retrofit initRetrofitWithToken(String baseUrl) {
+        return new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .client(addHeaderToken())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
+
+    private OkHttpClient addHeaderToken() {
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
+        httpClient.addInterceptor(chain -> {
+            Request request = chain.request().newBuilder().addHeader("Authorization", "Bearer "+SharedPreferencesHelper.getKey(getApplicationContext(), MonAmieEnum.USER_TOKEN.getValue())).build();
+            return chain.proceed(request);
+        });
+        return httpClient.build();
+    }
 
     private OkHttpClient addCache() {
         int cacheSize = 10 * 1024 * 1024; // 10 MB

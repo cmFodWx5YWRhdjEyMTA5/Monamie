@@ -13,7 +13,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ApiService {
-    @GET("last_url")
+    @GET("product-categories?page=1")
     Call<ProductCategoriesResponse> getMonAmieProducts();
 
     @POST("auth/login")

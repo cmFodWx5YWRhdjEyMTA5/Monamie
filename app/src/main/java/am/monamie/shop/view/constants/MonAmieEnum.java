@@ -8,6 +8,8 @@ public enum MonAmieEnum {
     FIRST_NAME("firstName"),
     LAST_NAME("lastName"),
     EMAIL("email"),
+    PHONE("phone"),
+    PHONE_UID("phone.uid"),
     PASSWORD("password"),
     FULL_NAME("fullName");
 

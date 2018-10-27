@@ -37,6 +37,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     private Context context = SplashScreenActivity.this;
     private Handler handler;
     private CreateDevice createDevice;
+    private CreateDeviceViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +72,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             String deviceId = DeviceUtils.deviceId(this);
             String deviceToken = SharedPreferencesHelper.getKey(this, MonAmieEnum.TOKEN_FCM.getValue());
             createDevice = new CreateDevice(deviceId, deviceToken, MonAmieEnum.DEVICE_TYPE.getValue());
-            CreateDeviceViewModel viewModel = ViewModelProviders.of(this).get(CreateDeviceViewModel.class);
+            viewModel = ViewModelProviders.of(this).get(CreateDeviceViewModel.class);
             viewModel.createDevice(createDevice);
             final Observer<CreateDeviceResponse> nameObserve = createDeviceResponse -> {
                 if (createDeviceResponse != null) {

@@ -27,7 +27,11 @@ public class DeviceUtils {
 
     public static String deviceId(Context context) {
         @SuppressLint("HardwareIds") String device_UDID = android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
-        Log.i(TAG, "deviceId: " + device_UDID);
+        if (device_UDID != null) {
+            SharedPreferencesHelper.putKey(context, MonAmieEnum.PHONE_UID.getValue(), device_UDID);
+            Log.i(TAG, "deviceId: " + device_UDID);
+        }
+        Log.i(TAG, "deviceId: NULL");
         return device_UDID;
     }
 
@@ -72,7 +76,7 @@ public class DeviceUtils {
                     // Get new Instance ID token
                     if (task.getResult() != null) {
                         token = task.getResult().getToken();
-                        SharedPreferencesHelper.putKey(context, MonAmieEnum.TOKEN_FCM.getValue(),token);
+                        SharedPreferencesHelper.putKey(context, MonAmieEnum.TOKEN_FCM.getValue(), token);
                         Log.i(TAG, "deviceToken: Successfully " + token);
                     } else {
                         token = null;
