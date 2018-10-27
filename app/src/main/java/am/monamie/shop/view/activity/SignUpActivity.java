@@ -35,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private Button register;
     private TextView dialogText;
     private Button dialogButton;
+    private Button signIn;
     private ProgressBar progressBar;
     // Object
     private UserRegistration userRegistration;
@@ -58,6 +59,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         register = findViewById(R.id.SignUpRegisterID);
         register.setOnClickListener(this);
         progressBar = findViewById(R.id.SignUpProgressBarId);
+        signIn = findViewById(R.id.SignUpSignInID);
+        signIn.setOnClickListener(this);
     }
 
     private void initUserRegistrationDialogView(View view) {
@@ -85,6 +88,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.SignUpBirdOfDayID:
                 DeviceUtils.closeKeyboard(this);
                 showDatePickerDialog();
+                break;
+            case R.id.SignUpSignInID:
+                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
                 break;
             case R.id.SignUpRegisterID:
                 progressBar.setVisibility(View.VISIBLE);

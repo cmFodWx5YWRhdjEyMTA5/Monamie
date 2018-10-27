@@ -9,8 +9,8 @@ import android.view.animation.AnimationUtils;
 public class MonamieAnimation {
     private static String TAG = MonamieAnimation.class.getName();
     public static void dialogShowAnimation(Context context, View view, int animPath){
-        Animation splashAnimation = AnimationUtils.loadAnimation(context, animPath);
-        splashAnimation.setAnimationListener(new Animation.AnimationListener() {
+        Animation dialogAnimation = AnimationUtils.loadAnimation(context, animPath);
+        dialogAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
                 Log.i(TAG, "onAnimationStart: ");
@@ -26,6 +26,6 @@ public class MonamieAnimation {
                 Log.i(TAG, "onAnimationRepeat: ");
             }
         });
-        view.startAnimation(splashAnimation);
+        view.startAnimation(dialogAnimation);
     }
 }

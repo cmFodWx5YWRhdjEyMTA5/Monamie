@@ -4,24 +4,43 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <android.support.v7.widget.CardView
-        android:layout_margin="5dp"
-        app:cardCornerRadius="3dp"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:src="@drawable/logo"
-                android:id="@+id/thumbnailsProductCategoriesImageID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <TextView
-                android:text="Name"
-                android:id="@+id/productCategoriesNameID"
+                android:id="@+id/productItemTitleID"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="AAA"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/productImageItemID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/productProgressBarID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
+
 </RelativeLayout>

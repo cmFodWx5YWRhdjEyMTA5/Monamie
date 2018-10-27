@@ -44,6 +44,7 @@
     <string name="bird_of_day">Bird of day</string>
     <string name="register">Register</string>
     <string name="or">OR</string>
+    <string name="phone_number">Phone number</string>
 
     <!--Token-->
     <string name="gcm_token" translatable="false">Instance ID Token %s</string>

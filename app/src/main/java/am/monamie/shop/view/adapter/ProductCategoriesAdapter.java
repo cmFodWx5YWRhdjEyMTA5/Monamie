@@ -6,6 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -40,9 +43,15 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageView thumbnailImage;
+        TextView title;
+        ProgressBar progressBar;
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            thumbnailImage = itemView.findViewById(R.id.productImageItemID);
+            title = itemView.findViewById(R.id.productItemTitleID);
+            progressBar = itemView.findViewById(R.id.productProgressBarID);
         }
     }
 
