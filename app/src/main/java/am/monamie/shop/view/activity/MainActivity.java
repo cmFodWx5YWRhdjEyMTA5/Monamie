@@ -18,7 +18,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +31,12 @@ import am.monamie.shop.view.fragment.ContactUsFragment;
 import am.monamie.shop.view.fragment.ProductCategoriesFragment;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     private static final String TAG = MainActivity.class.getName();
     // Views
     private FragmentTransaction fragmentTransaction;
     private Toolbar toolbar;
-    private FloatingActionButton fab;
+    private ImageView fab;
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private View headerView;
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         toolbarTitle = toolbar.findViewById(R.id.toolbarTitleID);
         fab = findViewById(R.id.fab);
+        fab.setOnClickListener(this);
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         headerView = navigationView.getHeaderView(0);
@@ -111,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 SharedPreferencesHelper.removeData(this, MonAmieEnum.FULL_NAME.getValue());
                 startActivity(new Intent(MainActivity.this, SignInActivity.class));
                 break;
+
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -136,5 +140,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         actionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.general_screen_action_bar_title_color));
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.fab:
+                Toast.makeText(this, "Karzinka", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }
