@@ -4,13 +4,11 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -22,12 +20,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import am.monamie.shop.R;
 import am.monamie.shop.view.constants.MonAmieEnum;
-import am.monamie.shop.view.fragment.ContactUsFragment;
 import am.monamie.shop.view.fragment.ProductCategoriesFragment;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
 
@@ -45,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public TextView toolbarTitle;
     // Objects
     private ProductCategoriesFragment productCategoriesFragment = new ProductCategoriesFragment();
-    private ContactUsFragment contactUsFragment = new ContactUsFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 createFragment(R.id.fragment_Container, productCategoriesFragment);
                 break;
             case R.id.contact_us_menu_id:
-                createFragment(R.id.fragment_Container, contactUsFragment);
+                startActivity(new Intent(MainActivity.this, ContactUsActivity.class));
                 break;
             case R.id.log_out_menu_id:
                 SharedPreferencesHelper.removeData(this, MonAmieEnum.EMAIL.getValue());

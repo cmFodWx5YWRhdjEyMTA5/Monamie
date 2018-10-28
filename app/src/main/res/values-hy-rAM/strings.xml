@@ -64,5 +64,13 @@
     <string name="user_registration_day">Day</string>
     <string name="user_registration_month">Month</string>
     <string name="user_registration_year">Year</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+
+    <!--Contact Us Activity-->
+    <string name="contact_us_title">Contact Us</string>
+    <string name="contact_us_about_us">About Us</string>
+    <string name="contact_us_map">Map</string>
+    <string name="contact_us_email">Email</string>
+    <string name="contact_us_website">Website</string>
 
 </resources>
