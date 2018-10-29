@@ -70,7 +70,7 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
                 callToMonamie(AppConstants.PHONE_MONAMIE);
                 break;
             case R.id.contact_us_backID:
-                Toast.makeText(this, "Back", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ContactUsActivity.this, MainActivity.class));
                 break;
         }
     }
