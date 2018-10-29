@@ -1,5 +1,6 @@
 package am.monamie.shop.view.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import java.util.List;
 import am.monamie.shop.R;
 import am.monamie.shop.model.ContactUsModel;
 import am.monamie.shop.view.constants.AppConstants;
+import am.monamie.shop.view.util.MonamieAnimation;
 
 public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.MyViewHolder> {
     private Context context;
@@ -45,6 +47,7 @@ public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.MyVi
         cardView.setOnClickListener(v -> {
             switch (position) {
                 case 0:
+                    showAboutUsDialog();
                     break;
                 case 1:
                     break;
@@ -62,6 +65,17 @@ public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.MyVi
                     break;
             }
         });
+    }
+
+    private void showAboutUsDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogView = inflater.inflate(R.layout.dialog_about_us, null);
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.setCancelable(true);
+        //show dialog
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
     }
 
     @Override

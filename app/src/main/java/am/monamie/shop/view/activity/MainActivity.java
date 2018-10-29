@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import am.monamie.shop.R;
+import am.monamie.shop.view.constants.AppConstants;
 import am.monamie.shop.view.constants.MonAmieEnum;
 import am.monamie.shop.view.fragment.ProductCategoriesFragment;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
@@ -92,20 +93,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         switch (id) {
             case R.id.product_categories_menu_id:
-                createFragment(R.id.fragment_Container, productCategoriesFragment);
+                drawerItemCliked(AppConstants.PRODUCT_CATEGORIES);
                 break;
             case R.id.contact_us_menu_id:
-                startActivity(new Intent(MainActivity.this, ContactUsActivity.class));
+                drawerItemCliked(AppConstants.CONTACT_US);
                 break;
             case R.id.log_out_menu_id:
-                SharedPreferencesHelper.removeData(this, MonAmieEnum.EMAIL.getValue());
-                SharedPreferencesHelper.removeData(this, MonAmieEnum.PHONE.getValue());
-                SharedPreferencesHelper.removeData(this, MonAmieEnum.USER_TOKEN.getValue());
-                SharedPreferencesHelper.removeData(this, MonAmieEnum.PASSWORD.getValue());
-                SharedPreferencesHelper.removeData(this, MonAmieEnum.FIRST_NAME.getValue());
-                SharedPreferencesHelper.removeData(this, MonAmieEnum.LAST_NAME.getValue());
-                SharedPreferencesHelper.removeData(this, MonAmieEnum.FULL_NAME.getValue());
-                startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                drawerItemCliked(AppConstants.LOG_OUT);
                 break;
 
         }
@@ -130,9 +124,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             window.setStatusBarColor(getResources().getColor(R.color.general_screen_action_bar_background_color));
             window.setNavigationBarColor(getResources().getColor(R.color.transparent));
         }
-        drawer.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         actionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.general_screen_action_bar_title_color));
+    }
+
+    private void drawerItemCliked(String itemType) {
+        drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+                Log.i(TAG, "onDrawerSlide: ");
+            }
+
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) {
+                Log.i(TAG, "onDrawerOpened: ");
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+                Log.i(TAG, "onDrawerClosed: ");
+                if (itemType.equals(AppConstants.CONTACT_US)) {
+                    startActivity(new Intent(MainActivity.this, ContactUsActivity.class));
+                } else if (itemType.equals(AppConstants.PRODUCT_CATEGORIES)) {
+                    createFragment(R.id.fragment_Container, productCategoriesFragment);
+                } else if (itemType.equals(AppConstants.LOG_OUT)) {
+                    SharedPreferencesHelper.removeData(MainActivity.this, MonAmieEnum.EMAIL.getValue());
+                    SharedPreferencesHelper.removeData(MainActivity.this, MonAmieEnum.PHONE.getValue());
+                    SharedPreferencesHelper.removeData(MainActivity.this, MonAmieEnum.USER_TOKEN.getValue());
+                    SharedPreferencesHelper.removeData(MainActivity.this, MonAmieEnum.PASSWORD.getValue());
+                    SharedPreferencesHelper.removeData(MainActivity.this, MonAmieEnum.FIRST_NAME.getValue());
+                    SharedPreferencesHelper.removeData(MainActivity.this, MonAmieEnum.LAST_NAME.getValue());
+                    SharedPreferencesHelper.removeData(MainActivity.this, MonAmieEnum.FULL_NAME.getValue());
+                    startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                }
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+            }
+        });
     }
 
     @Override
