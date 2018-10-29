@@ -17,6 +17,8 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.github.ybq.android.spinkit.style.DoubleBounce;
+import com.github.ybq.android.spinkit.style.FadingCircle;
 
 import java.util.List;
 
@@ -49,7 +51,7 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        holder.progressBar.setVisibility(View.GONE);
+                        //holder.progressBar.setVisibility(View.GONE);
                         return false;
                     }
 
@@ -77,6 +79,8 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
             thumbnailImage = itemView.findViewById(R.id.productImageItemID);
             title = itemView.findViewById(R.id.productItemTitleID);
             progressBar = itemView.findViewById(R.id.productProgressBarID);
+            FadingCircle doubleBounce = new FadingCircle();
+            progressBar.setIndeterminateDrawable(doubleBounce);
         }
     }
 
