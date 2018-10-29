@@ -14,13 +14,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:textStyle="italic"
-            android:textColor="#040449"
-            android:textSize="28sp"
-            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Mon Amie Information" />
+            android:layout_marginLeft="12dp"
+            android:gravity="center_vertical"
+            android:text="@string/contact_us_mon_amie_information"
+            android:textColor="#040449"
+            android:textSize="28sp"
+            android:textStyle="italic" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/contact_us_recyclerViewID"

@@ -72,5 +72,6 @@
     <string name="contact_us_map">Map</string>
     <string name="contact_us_email">Email</string>
     <string name="contact_us_website">Website</string>
+    <string name="contact_us_mon_amie_information">Mon Amie Information</string>
 
 </resources>
