@@ -1,6 +1,8 @@
 package am.monamie.shop.view.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +16,7 @@ import java.util.List;
 
 import am.monamie.shop.R;
 import am.monamie.shop.model.ContactUsModel;
+import am.monamie.shop.view.constants.AppConstants;
 
 public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.MyViewHolder> {
     private Context context;
@@ -35,6 +38,30 @@ public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.thumbnailImage.setImageResource(list.get(position).getImagePath());
         holder.title.setText(list.get(position).getTitle());
+        clickListener(position, holder.cardView);
+    }
+
+    private void clickListener(int position, CardView cardView) {
+        cardView.setOnClickListener(v -> {
+            switch (position) {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    // map
+                    Intent intentLocation = new Intent(Intent.ACTION_VIEW);
+                    intentLocation.setData(Uri.parse(AppConstants.LOCATION_MONAMIE));
+                    v.getContext().startActivity(intentLocation);
+                    break;
+                case 3:
+                    // website
+                    Intent intentWebSite = new Intent(Intent.ACTION_VIEW);
+                    intentWebSite.setData(Uri.parse(AppConstants.WEBSITE_MONAMIE));
+                    v.getContext().startActivity(intentWebSite);
+                    break;
+            }
+        });
     }
 
     @Override
