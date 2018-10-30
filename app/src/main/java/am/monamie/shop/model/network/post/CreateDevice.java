@@ -1,4 +1,4 @@
-package am.monamie.shop.model.post;
+package am.monamie.shop.model.network.post;
 
 public class CreateDevice {
     private String deviceId;

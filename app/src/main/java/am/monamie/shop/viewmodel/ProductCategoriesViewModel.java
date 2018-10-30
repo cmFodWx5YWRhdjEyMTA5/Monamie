@@ -5,7 +5,7 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import am.monamie.shop.model.get.ProductCategoriesResponse;
+import am.monamie.shop.model.network.get.ProductCategoriesResponse;
 import am.monamie.shop.viewmodel.repository.ProductCategoriesRepository;
 
 public class ProductCategoriesViewModel extends AndroidViewModel {

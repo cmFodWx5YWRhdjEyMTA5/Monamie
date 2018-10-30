@@ -1,4 +1,4 @@
-package am.monamie.shop.model.get;
+package am.monamie.shop.model.network.get;
 
 public class UserRegistrationResponse {
     private Boolean success;

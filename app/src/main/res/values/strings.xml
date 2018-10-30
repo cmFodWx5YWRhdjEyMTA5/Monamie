@@ -53,11 +53,11 @@
     <string name="default_notification_channel_id">1</string>
     <string name="fcm_message">FCM Message</string>
 
-    <!--User Login Dialog-->
+    <!--ProductCategory Login Dialog-->
     <string name="user_login_dialog_message_text">Login Failed !!!</string>
     <string name="user_login_dialog_button_text">OK</string>
 
-    <!--User Registration Dialog-->
+    <!--ProductCategory Registration Dialog-->
     <string name="user_registration_dialog_success_message_text">Registration Successfully</string>
     <string name="user_registration_dialog_field_message_text">Registration Field</string>
     <string name="user_registration_dialog_button_text">OK</string>
@@ -72,6 +72,10 @@
     <string name="contact_us_map">Map</string>
     <string name="contact_us_email">Email</string>
     <string name="contact_us_website">Website</string>
+    <string name="contact_us_facebook">Facebook</string>
+    <string name="contact_us_instagram">Instagram</string>
+    <string name="contact_us_twitter">Twitter</string>
+    <string name="contact_us_google_plus">Google Plus</string>
     <string name="contact_us_mon_amie_information">Mon Amie Information</string>
     <string name="contact_us_about_us_details_text">It is hard to imagine any event or celebration without floral decoration, it is conference exhibition or wedding birthday anniversary housewarming or a long-awaited meeting with a person important and precious for you, unique design or bouquet makes it more memorable.At Mon Amy flower and design salon you can always order original compositions and design for any occasion. And our qualified florist-designers will help you to create a beautiful bouquet and to design the event venue.Fresh roses, original lilies, unique tulips and hundreds of other exotic plants and flowers delivered from different corners of the world will make any event to day of color and fragrance.Mon Amie flower and design shop chain was founded in 2002 in Yerevan. In summer 2013a new Mon Amy shop has been opened in Krasnodar, Russian Federation. Our partners are large enterprises and international organizations in Armenia. We also had a privilege to decorate different events of national significance.Our specialists regularly participate in international trainings and competitions. In 2013 in Taipei (Taiwan, China) our specialists were awarded with International Flower Design Award and with the diploma of Armenian social political journal Parliament.According to the results of competition held by journal Business news and companySociometer Mon Amie has been awarded as a best brand and the best service provider of the year and the best flower salon as well. </string>
 

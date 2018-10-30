@@ -52,19 +52,39 @@ public class ContactUsAdapter extends RecyclerView.Adapter<ContactUsAdapter.MyVi
                 case 1:
                     break;
                 case 2:
-                    // map
+                    // map Mon amie location
                     Intent intentLocation = new Intent(Intent.ACTION_VIEW);
                     intentLocation.setData(Uri.parse(AppConstants.LOCATION_MONAMIE));
                     v.getContext().startActivity(intentLocation);
                     break;
                 case 3:
-                    // website
-                    Intent intentWebSite = new Intent(Intent.ACTION_VIEW);
-                    intentWebSite.setData(Uri.parse(AppConstants.WEBSITE_MONAMIE));
-                    v.getContext().startActivity(intentWebSite);
+                    // website Mon amie
+                    goToWebsite(v, AppConstants.WEBSITE_MONAMIE);
+                    break;
+                case 4:
+                    // website Facebook
+                    goToWebsite(v, AppConstants.FACEBOOK_MONAMIE);
+                    break;
+                case 5:
+                    // website Instagram
+                    goToWebsite(v, AppConstants.INSTAGRAM_MONAMIE);
+                    break;
+                case 6:
+                    // website Twitter
+                    goToWebsite(v, AppConstants.TWITTER_MONAMIE);
+                    break;
+                case 7:
+                    // website Google Plus
+                    goToWebsite(v, AppConstants.GOOGLE_PLUS_MONAMIE);
                     break;
             }
         });
+    }
+
+    private void goToWebsite(View view, String url) {
+        Intent intentWebSite = new Intent(Intent.ACTION_VIEW);
+        intentWebSite.setData(Uri.parse(url));
+        view.getContext().startActivity(intentWebSite);
     }
 
     private void showAboutUsDialog() {

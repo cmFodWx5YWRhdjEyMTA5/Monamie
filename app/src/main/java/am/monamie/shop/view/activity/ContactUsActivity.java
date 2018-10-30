@@ -1,7 +1,10 @@
 package am.monamie.shop.view.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -13,6 +16,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -103,6 +109,10 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
         listContactUs.add(new ContactUsModel(R.drawable.email, getString(R.string.contact_us_email)));
         listContactUs.add(new ContactUsModel(R.drawable.map, getString(R.string.contact_us_map)));
         listContactUs.add(new ContactUsModel(R.drawable.website, getString(R.string.contact_us_website)));
+        listContactUs.add(new ContactUsModel(R.drawable.facebook, getString(R.string.contact_us_facebook)));
+        listContactUs.add(new ContactUsModel(R.drawable.instagram, getString(R.string.contact_us_instagram)));
+        listContactUs.add(new ContactUsModel(R.drawable.twitter, getString(R.string.contact_us_twitter)));
+        listContactUs.add(new ContactUsModel(R.drawable.google_plus, getString(R.string.contact_us_google_plus)));
         adapter = new ContactUsAdapter(this, listContactUs);
         recyclerView.setAdapter(adapter);
     }

@@ -1,4 +1,4 @@
-package am.monamie.shop.model.get;
+package am.monamie.shop.model.network.get;
 
 import java.io.Serializable;
 import java.util.List;
@@ -37,7 +37,7 @@ public class ProductCategoriesResponse implements Serializable {
         private Integer limit;
         private Integer page;
         private Integer pages;
-        private List<User> users = null;
+        private List<ProductCategory> productCategories = null;
 
         public Integer getTotal() {
             return total;
@@ -71,17 +71,17 @@ public class ProductCategoriesResponse implements Serializable {
             this.pages = pages;
         }
 
-        public List<User> getUsers() {
-            return users;
+        public List<ProductCategory> getProductCategories() {
+            return productCategories;
         }
 
-        public void setUsers(List<User> users) {
-            this.users = users;
+        public void setProductCategories(List<ProductCategory> productCategories) {
+            this.productCategories = productCategories;
         }
 
     }
 
-    public class User {
+    public class ProductCategory {
         private String name;
         private String image;
         private String updatedAt;

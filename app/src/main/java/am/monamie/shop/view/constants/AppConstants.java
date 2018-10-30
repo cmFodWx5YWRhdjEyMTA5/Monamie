@@ -5,6 +5,10 @@ public interface AppConstants {
     String PHONE_MONAMIE = "+374 10 548 814";
     String LOCATION_MONAMIE = "https://goo.gl/maps/UCTpMCAT9yP2";
     String WEBSITE_MONAMIE = "http://www.monamie.am/";
+    String FACEBOOK_MONAMIE = "https://www.facebook.com/";
+    String INSTAGRAM_MONAMIE = "https://www.instagram.com/";
+    String GOOGLE_PLUS_MONAMIE = "https://google.com/";
+    String TWITTER_MONAMIE = "https://twitter.com/";
     // Navigation Drawer Item Type
     String CONTACT_US = "contact_us";
     String LOG_OUT = "log_out";

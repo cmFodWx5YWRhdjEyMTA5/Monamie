@@ -17,13 +17,10 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.github.ybq.android.spinkit.style.FadingCircle;
 
-import java.util.List;
-
 import am.monamie.shop.R;
-import am.monamie.shop.model.get.ProductCategoriesResponse;
+import am.monamie.shop.model.network.get.ProductCategoriesResponse;
 
 public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCategoriesAdapter.MyViewHolder> {
     private static final String TAG = ProductCategoriesAdapter.class.getName();
@@ -44,10 +41,10 @@ public class ProductCategoriesAdapter extends RecyclerView.Adapter<ProductCatego
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.title.setText(list.getData().getUsers().get(position).getName());
+        holder.title.setText(list.getData().getProductCategories().get(position).getName());
         Glide
                 .with(context)
-                .load(list.getData().getUsers().get(position).getImage())
+                .load(list.getData().getProductCategories().get(position).getImage())
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {

@@ -18,8 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import am.monamie.shop.R;
-import am.monamie.shop.model.get.UserLoginResponse;
-import am.monamie.shop.model.post.UserLogin;
+import am.monamie.shop.model.network.get.UserLoginResponse;
+import am.monamie.shop.model.network.post.UserLogin;
 import am.monamie.shop.view.constants.MonAmieEnum;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
 import am.monamie.shop.view.util.MonamieAnimation;

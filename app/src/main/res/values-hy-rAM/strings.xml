@@ -53,11 +53,11 @@
     <string name="default_notification_channel_id">1</string>
     <string name="fcm_message">FCM Message</string>
 
-    <!--User Login Dialog-->
+    <!--ProductCategory Login Dialog-->
     <string name="user_login_dialog_message_text">Login Failed !!!</string>
     <string name="user_login_dialog_button_text">OK</string>
 
-    <!--User Registration Dialog-->
+    <!--ProductCategory Registration Dialog-->
     <string name="user_registration_dialog_success_message_text">Registration Successfully</string>
     <string name="user_registration_dialog_field_message_text">Registration Field</string>
     <string name="user_registration_dialog_button_text">OK</string>
@@ -68,12 +68,16 @@
 
     <!--Contact Us Activity-->
     <string name="contact_us_title">Contact Us</string>
-    <string name="contact_us_about_us">ՄԵՐ ՄԱՍԻՆ</string>
+    <string name="contact_us_about_us">About Us</string>
     <string name="contact_us_map">Map</string>
     <string name="contact_us_email">Email</string>
     <string name="contact_us_website">Website</string>
+    <string name="contact_us_facebook">Facebook</string>
+    <string name="contact_us_instagram">Instagram</string>
+    <string name="contact_us_twitter">Twitter</string>
+    <string name="contact_us_google_plus">Google Plus</string>
     <string name="contact_us_mon_amie_information">Mon Amie Information</string>
-    <string name="contact_us_about_us_details_text">Որևէ միջոցառում կամ տոնակատարություն առանց ծաղկային ձևավորման դժվար է պատկերացնել. լինի կոնֆերանս, ցուցահանդես, թե՝ հարսանիք, ծննդյան օր, հոբելյան, բնակարանամուտ, կամ՝ երկար սպասված հանդիպում Ձեզ համար կարևոր ու թանկ մարդու հետ, օրիգինալ ծաղկեփունջը կամ ձևավորումն այն դարձնում են ավելի հիշարժան:«Մոն ամի» ծաղկի և դիզայնի սրահում Դուք միշտ կարող եք պատվիրել յուրօրինակ կոմպոզիցիաներ և ձևավորում՝ ցանկացած առիթի համար: Իսկ մեր բարձրակարգ ֆլորիստ-դիզայներները կօգնեն կազմել գեղեցիկ ծաղկեփունջ ու պրոֆեսիոնալ ձևավորել միջոցառման անցկացման վայրը:Աշխարհի ամենատարբեր անկյուններից խանութ առաքվող թարմ վարդերը, արտասովոր շուշանները, հազվագյուտ կակաչները և հարյուրից ավելի այլ բնական ծաղիկների ու էկզոտիկ բույսերի տեսականին գույնի ու բուրմունքի իսկական տոն է գեղեցկությունը գնահատողների համար:«Մոն ամի» ծաղկի և դիզայնի սրահների ցանցը ստեղծվել է 2002 թվականին՝ Երևանում: 2013-ի ամռանը «Մոն ամի» խանութ է բացվել նաև Կրասնոդարում:Մենք համագործակցում ենք Հայաստանում գործող խոշոր ձեռնարկությունների և միջազգային կազմակերպությունների հետ: Նաև՝ պատիվ ենք ունեցել ձևավորելու պետական նշանակության տարատեսակ միջոցառումներ:Մեր մասնագետները պարբերաբար մասնակցում են միջազգային թրենինգների և մրցույթների: 2013-ին Տայպեյում (Թայվան, Չինաստան) կայացած մրցույթի ընթացքում մեր մասնագետներն արժանացել են Ծաղկի ձևավորման միջազգային մրցանակի (International Flower Design Award) և հայաստանյան «Պառլամենտ» հասարակական-քաղաքական ամսագրի դիպլոմի: «Բիզնես նյուզ» ամսագրի և «Սոցիոմետր» կազմակերպության կողմից անցկացվող մրցույթի արդյունքներով «Մոն ամի» սրահը ճանաչվել է տարվա լավագույն ապրանքանիշ և ծառայություն մատուցող լավագույն ընկերություն, ինչպես նաև տարվա լավագույն ծաղկի սրահ:</string>
+    <string name="contact_us_about_us_details_text">It is hard to imagine any event or celebration without floral decoration, it is conference exhibition or wedding birthday anniversary housewarming or a long-awaited meeting with a person important and precious for you, unique design or bouquet makes it more memorable.At Mon Amy flower and design salon you can always order original compositions and design for any occasion. And our qualified florist-designers will help you to create a beautiful bouquet and to design the event venue.Fresh roses, original lilies, unique tulips and hundreds of other exotic plants and flowers delivered from different corners of the world will make any event to day of color and fragrance.Mon Amie flower and design shop chain was founded in 2002 in Yerevan. In summer 2013a new Mon Amy shop has been opened in Krasnodar, Russian Federation. Our partners are large enterprises and international organizations in Armenia. We also had a privilege to decorate different events of national significance.Our specialists regularly participate in international trainings and competitions. In 2013 in Taipei (Taiwan, China) our specialists were awarded with International Flower Design Award and with the diploma of Armenian social political journal Parliament.According to the results of competition held by journal Business news and companySociometer Mon Amie has been awarded as a best brand and the best service provider of the year and the best flower salon as well. </string>
 
 
 </resources>

@@ -1,12 +1,12 @@
 package am.monamie.shop.view.webservice;
 
-import am.monamie.shop.model.get.CreateDeviceResponse;
-import am.monamie.shop.model.get.ProductCategoriesResponse;
-import am.monamie.shop.model.get.UserLoginResponse;
-import am.monamie.shop.model.get.UserRegistrationResponse;
-import am.monamie.shop.model.post.CreateDevice;
-import am.monamie.shop.model.post.UserLogin;
-import am.monamie.shop.model.post.UserRegistration;
+import am.monamie.shop.model.network.get.CreateDeviceResponse;
+import am.monamie.shop.model.network.get.ProductCategoriesResponse;
+import am.monamie.shop.model.network.get.UserLoginResponse;
+import am.monamie.shop.model.network.get.UserRegistrationResponse;
+import am.monamie.shop.model.network.post.CreateDevice;
+import am.monamie.shop.model.network.post.UserLogin;
+import am.monamie.shop.model.network.post.UserRegistration;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

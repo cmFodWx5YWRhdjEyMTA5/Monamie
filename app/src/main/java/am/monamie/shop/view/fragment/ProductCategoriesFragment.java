@@ -5,7 +5,6 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -15,10 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.Objects;
-
 import am.monamie.shop.R;
-import am.monamie.shop.model.get.ProductCategoriesResponse;
+import am.monamie.shop.model.network.get.ProductCategoriesResponse;
 import am.monamie.shop.view.activity.MainActivity;
 import am.monamie.shop.view.adapter.ProductCategoriesAdapter;
 import am.monamie.shop.viewmodel.ProductCategoriesViewModel;

@@ -6,8 +6,8 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import am.monamie.shop.AppApplication;
-import am.monamie.shop.model.get.CreateDeviceResponse;
-import am.monamie.shop.model.post.CreateDevice;
+import am.monamie.shop.model.network.get.CreateDeviceResponse;
+import am.monamie.shop.model.network.post.CreateDevice;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

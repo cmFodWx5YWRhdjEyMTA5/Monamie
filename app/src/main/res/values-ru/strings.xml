@@ -53,11 +53,11 @@
     <string name="default_notification_channel_id">1</string>
     <string name="fcm_message">FCM Message</string>
 
-    <!--User Login Dialog-->
+    <!--ProductCategory Login Dialog-->
     <string name="user_login_dialog_message_text">Login Failed !!!</string>
     <string name="user_login_dialog_button_text">OK</string>
 
-    <!--User Registration Dialog-->
+    <!--ProductCategory Registration Dialog-->
     <string name="user_registration_dialog_success_message_text">Registration Successfully</string>
     <string name="user_registration_dialog_field_message_text">Registration Field</string>
     <string name="user_registration_dialog_button_text">OK</string>
@@ -68,12 +68,16 @@
 
     <!--Contact Us Activity-->
     <string name="contact_us_title">Contact Us</string>
-    <string name="contact_us_about_us">О НАС</string>
+    <string name="contact_us_about_us">About Us</string>
     <string name="contact_us_map">Map</string>
     <string name="contact_us_email">Email</string>
     <string name="contact_us_website">Website</string>
+    <string name="contact_us_facebook">Facebook</string>
+    <string name="contact_us_instagram">Instagram</string>
+    <string name="contact_us_twitter">Twitter</string>
+    <string name="contact_us_google_plus">Google Plus</string>
     <string name="contact_us_mon_amie_information">Mon Amie Information</string>
-    <string name="contact_us_about_us_details_text">Трудно представить себе какое-либо событие или праздник без цветочного оформления, будь это конференция или свадьба, годовщина, юбилей, или долгожданная встреча с важным и ценным человеком: уникальный дизайн или букет сделают это событие более запоминающимся.В салоне дизайна и цветов Mon Amie вы всегда можете заказать оригинальные композиции и дизайн для любого случая. Наши квалифицированные флористы-дизайнеры помогут вам создать красивый букет и оформить место проведения мероприятия.Свежие розы, оригинальные лилии, уникальные тюльпаны и сотни других экзотических цветов и ароматов из разных уголков мира войдут в ваш дом.Сеть цветочных и дизайнерских магазинов Mon Amie была основана в 2002 году в Ереване. Летом 2013 года в Краснодаре (Российская Федерация) открылся новый магазин Mon Amie.Наши партнеры - крупные предприятия и международные организации в Армении. У нас также была привилегия украшать различные события национального значения.Наши специалисты регулярно участвуют в международных тренингах и соревнованиях. В 2013 году в Тайбэе (Тайвань, Китай) наши специалисты были награждены международной премией за цветной дизайн и дипломом армянского общественного политического журнала «Парламент».По результатам конкурса, проведенного журналом «Новости бизнеса» и компанией «Социометр» Mon Amie был награжден как лучший бренд и лучший поставщик услуг года, так и лучший цветочный салон.</string>
+    <string name="contact_us_about_us_details_text">It is hard to imagine any event or celebration without floral decoration, it is conference exhibition or wedding birthday anniversary housewarming or a long-awaited meeting with a person important and precious for you, unique design or bouquet makes it more memorable.At Mon Amy flower and design salon you can always order original compositions and design for any occasion. And our qualified florist-designers will help you to create a beautiful bouquet and to design the event venue.Fresh roses, original lilies, unique tulips and hundreds of other exotic plants and flowers delivered from different corners of the world will make any event to day of color and fragrance.Mon Amie flower and design shop chain was founded in 2002 in Yerevan. In summer 2013a new Mon Amy shop has been opened in Krasnodar, Russian Federation. Our partners are large enterprises and international organizations in Armenia. We also had a privilege to decorate different events of national significance.Our specialists regularly participate in international trainings and competitions. In 2013 in Taipei (Taiwan, China) our specialists were awarded with International Flower Design Award and with the diploma of Armenian social political journal Parliament.According to the results of competition held by journal Business news and companySociometer Mon Amie has been awarded as a best brand and the best service provider of the year and the best flower salon as well. </string>
 
 
 </resources>

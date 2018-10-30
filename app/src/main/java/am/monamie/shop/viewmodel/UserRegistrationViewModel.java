@@ -5,8 +5,8 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import am.monamie.shop.model.get.UserRegistrationResponse;
-import am.monamie.shop.model.post.UserRegistration;
+import am.monamie.shop.model.network.get.UserRegistrationResponse;
+import am.monamie.shop.model.network.post.UserRegistration;
 import am.monamie.shop.viewmodel.repository.UserRegistrationRepository;
 
 public class UserRegistrationViewModel extends AndroidViewModel {

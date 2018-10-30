@@ -5,8 +5,8 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import am.monamie.shop.model.get.UserLoginResponse;
-import am.monamie.shop.model.post.UserLogin;
+import am.monamie.shop.model.network.get.UserLoginResponse;
+import am.monamie.shop.model.network.post.UserLogin;
 import am.monamie.shop.viewmodel.repository.UserLoginRepository;
 
 public class UserLoginViewModel extends AndroidViewModel {
