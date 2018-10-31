@@ -17,6 +17,10 @@
             android:icon="@drawable/dot_icon"
             android:title="@string/order_history" />
         <item
+            android:id="@+id/google_maps_menu_id"
+            android:icon="@drawable/dot_icon"
+            android:title="@string/google_maps" />
+        <item
             android:id="@+id/contact_us_menu_id"
             android:icon="@drawable/dot_icon"
             android:title="@string/contact_us" />

@@ -54,5 +54,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
     // ProgressBar
     implementation 'com.github.ybq:AndroidSpinKit:v1.0.0'
+    //Google play services
+    implementation 'com.google.android.gms:play-services-places:16.0.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:16.0.0'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
 }
 apply plugin: 'com.google.gms.google-services'

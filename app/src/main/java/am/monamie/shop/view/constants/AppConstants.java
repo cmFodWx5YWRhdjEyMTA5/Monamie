@@ -12,5 +12,8 @@ public interface AppConstants {
     // Navigation Drawer Item Type
     String CONTACT_US = "contact_us";
     String LOG_OUT = "log_out";
+    String GOOGLE_MAPS = "google_maps";
     String PRODUCT_CATEGORIES = "product_categories";
+
+    int ERROR_DIALOG_REQUEST = 9001;
 }

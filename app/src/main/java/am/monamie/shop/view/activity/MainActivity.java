@@ -1,5 +1,6 @@
 package am.monamie.shop.view.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,11 +21,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+
 import am.monamie.shop.R;
 import am.monamie.shop.view.constants.AppConstants;
 import am.monamie.shop.view.constants.MonAmieEnum;
 import am.monamie.shop.view.fragment.ProductCategoriesFragment;
+import am.monamie.shop.view.google.activity.MapsActivity;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
+
+import static am.monamie.shop.view.constants.AppConstants.ERROR_DIALOG_REQUEST;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     private static final String TAG = MainActivity.class.getName();
@@ -101,6 +108,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.log_out_menu_id:
                 drawerItemCliked(AppConstants.LOG_OUT);
                 break;
+            case R.id.google_maps_menu_id:
+                drawerItemCliked(AppConstants.GOOGLE_MAPS);
+                break;
 
         }
         drawer.closeDrawer(GravityCompat.START);
@@ -156,6 +166,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     SharedPreferencesHelper.removeData(MainActivity.this, MonAmieEnum.LAST_NAME.getValue());
                     SharedPreferencesHelper.removeData(MainActivity.this, MonAmieEnum.FULL_NAME.getValue());
                     startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                } else if (itemType.equals(AppConstants.GOOGLE_MAPS)) {
+                    if (isServicesOK()) {
+                        startActivity(new Intent(MainActivity.this, MapsActivity.class));
+                    }
                 }
             }
 
@@ -172,5 +186,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(this, "Karzinka", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    public boolean isServicesOK() {
+        Log.d(TAG, "isServicesOK: checking google services version");
+
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MainActivity.this);
+
+        if (available == ConnectionResult.SUCCESS) {
+            //everything is fine and the user can make map requests
+            Log.d(TAG, "isServicesOK: Google Play Services is working");
+            return true;
+        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
+            //an error occured but we can resolve it
+            Log.d(TAG, "isServicesOK: an error occured but we can fix it");
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MainActivity.this, available, ERROR_DIALOG_REQUEST);
+            dialog.show();
+        } else {
+            Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }

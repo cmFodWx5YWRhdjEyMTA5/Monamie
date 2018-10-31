@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Mon amie</string>
 
+    <!--Google maps-->
+    <string name="google_maps_key">AIzaSyDlejAOo4W8iHCuXGvKJ3bCJh0KxKDPdl4</string>
+
+
+
     <string name="connect_to_network">connect_to_network</string>
     <string name="connect_to_wifi">connect_to_wifi</string>
     <string name="quit">quit</string>
@@ -23,6 +28,7 @@
     <string name="product_categories">Product Categories</string>
     <string name="payment_system">Payment System</string>
     <string name="order_history">Order History</string>
+    <string name="google_maps">Google Maps</string>
     <string name="contact_us">Contact Us</string>
     <string name="policy">Policy</string>
     <string name="other">Other</string>
