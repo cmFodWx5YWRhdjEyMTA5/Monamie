@@ -27,8 +27,8 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import am.monamie.shop.R;
 import am.monamie.shop.view.constants.AppConstants;
 import am.monamie.shop.view.constants.MonAmieEnum;
+import am.monamie.shop.view.fragment.MapsFragment;
 import am.monamie.shop.view.fragment.ProductCategoriesFragment;
-import am.monamie.shop.view.google.activity.MapsActivity;
 import am.monamie.shop.view.helper.SharedPreferencesHelper;
 
 import static am.monamie.shop.view.constants.AppConstants.ERROR_DIALOG_REQUEST;
@@ -168,7 +168,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     startActivity(new Intent(MainActivity.this, SignInActivity.class));
                 } else if (itemType.equals(AppConstants.GOOGLE_MAPS)) {
                     if (isServicesOK()) {
-                        startActivity(new Intent(MainActivity.this, MapsActivity.class));
+                        // startActivity(new Intent(MainActivity.this, MapsActivity.class));
+                        createMapsFragment(R.id.fragment_Container, new MapsFragment());
                     }
                 }
             }
@@ -179,6 +180,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+    private void createMapsFragment(int fragment_container, MapsFragment mapsFragment) {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        if (getSupportFragmentManager().findFragmentByTag(mapsFragment.getClass().getName()) != null) {
+            Fragment fragment = getSupportFragmentManager().findFragmentByTag(mapsFragment.getClass().getName());
+            fragmentTransaction.replace(fragment_container, fragment);
+            fragmentTransaction.commit();
+        } else {
+            fragmentTransaction.replace(fragment_container, mapsFragment, mapsFragment.getClass().getName()).addToBackStack("");
+            fragmentTransaction.commit();
+        }
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -187,6 +200,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
     }
+
 
     public boolean isServicesOK() {
         Log.d(TAG, "isServicesOK: checking google services version");
